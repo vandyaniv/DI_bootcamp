@@ -1,0 +1,90 @@
+
+print("""Hello world
+Hello world
+Hello world
+Hello world
+Hello world""") 
+
+
+#ok so here we just ask the the terminal five time " hello word "
+
+# exercice 2 Calcul with python 
+
+#Write code that calculates the result of: (99^3)*8 (meaning 99 to the power of 3, times 8).c
+#  
+calcul = 99 ** 3
+print(calcul*8)
+
+ 
+ # so here i declare a variable with the name of calcul because i calculate the value of is the calcul i request the terminal to send back the value )
+  
+  #Exercise 3 : What is the output ?
+#Predict the output of the following code snippets:
+    #  here we have 
+    
+result1 = 5 < 3
+print(f"5 < 3 : {result1}")
+
+result2 = 3 == 3
+print(f"3 == 3 : {result2}")
+
+result3 =  3 == "3"
+print(f'3 == "3" : {result3}')
+
+result4 = "Hello" == "hello"
+print(f' "Hello" == "hello" {result4}')
+
+
+# new exercice 
+#1Create a variable called computer_brand which value is the brand name of your computer.
+#2 Using the computer_brand variable print a sentence that states the following: "I have a <computer_brand> computer".
+
+# ok so here my variable should send a message on the terminal
+
+
+
+computer_brand = 'dell'
+print(f"i have a {computer_brand} computer")
+
+# exercice 5 
+# here the key to understand is that we want a print that will send text + variable + text 
+
+name = "Yaniv"
+
+age = 31
+
+shoe_size = 43
+
+info = "motivated"
+print(f"Hey, I'm {name}, I'm {age} years old, my shoe size is {shoe_size}.")
+
+#Exercise 6 : A & B
+# so if A bigger than B in that case print text 
+
+A = 6 
+B = 3
+if A > B: print("Hello Wordl")
+
+#Exercise 7 : Odd or Even
+#so here the explanation not easy but like this 
+#how variable as a number the number is question A is even = text+ever 
+#and "if not "  the text + is odd
+
+number = int(input("Please enter a number: "))
+if number % 2 == 0:  
+ # here if the number is even then print the message 
+  print(f'The number {number} is even')
+else: 
+     print(f'The number {number} is odd')  
+     
+     
+#exercice 8
+user_name = input("Please enter your name: ")
+if user_name != "Yaniv":
+    print("you have a cute name")
+
+# exercice 9 tall enough 
+height = int(input("Please enter your height in cm: "))
+
+if height > 145:
+    print("You must be taller to ride")
