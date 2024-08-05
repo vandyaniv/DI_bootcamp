@@ -1,0 +1,21 @@
+#Using the input function, ask the user for a string. The string must be 10 characters long.
+#b) if less than so do x if more than so do y
+
+user_input = input("Please enter a string: ")
+
+# B) 
+if len(user_input) < 10:
+    print("string not long enough")
+elif len(user_input) > 10:
+    print("string too long")
+else:
+    print("perfect string")
+
+    print("First character:", user_input[0])
+    print("Last character:", user_input[-1])
+    
+    # OK So here the issu  we can do the first caractere but also the last 
+    #we need here to to send 1 more caractere every time the terminal check again
+    # 
+
+    
