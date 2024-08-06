@@ -1,0 +1,28 @@
+
+topping_pizza = ["mozzarella", "ham", "artichoke", "mushrooms", "olives"]
+
+user_request = input("Please enter your topping: mozzarella, ham, artichoke, mushrooms, olives: ")
+
+if topping_pizza.count(user_request) == 1:
+    print(f"Your topping {user_request} has been successfully added. To leave, please write QUIT.")
+else:
+    print("Please add a valid topping or write QUIT.")
+    
+# ok i have that, but this is not a loop it will stop running if i writte something else 
+# the question how to transforme that into loop 
+
+#while user_request.lower() != "quit":
+
+topping_pizza = ["mozzarella", "ham", "artichoke", "mushrooms", "olives"]
+
+user_request = ""
+
+while user_request.lower() != "quit":
+    user_request = input("Please enter your topping (mozzarella, ham, artichoke, mushrooms, olives) or type 'QUIT' to exit: ")
+
+    if user_request.lower() == "quit":
+        print("thank you, exiting the topping selection.")
+    elif user_request in topping_pizza:
+        print(f"Your topping {user_request} has been successfully added.")
+    else:
+        print("Please add a valid topping or write 'QUIT'.")
