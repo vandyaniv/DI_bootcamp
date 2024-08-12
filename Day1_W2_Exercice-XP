@@ -1,0 +1,155 @@
+# exerice Xp 1
+class Cat:
+    def __init__(self, cat_name, cat_age):
+        self.name = cat_name
+        self.age = cat_age
+
+
+def find_oldest_cat(cat_list):
+    oldest_cat = cat_list[0]
+    for cat in cat_list[1:]:
+        if cat.age > oldest_cat.age:
+            oldest_cat = cat
+        return oldest_cat
+
+
+# in that way we set again the cat in order > here from young to old
+# cat =  list : cat  ->= valu1, valu2, valu3 ->  [i:1, i:2, i:3 ]
+
+
+# creat object -> cat (name, age)
+
+cat1 = Cat("Miau", 4)
+cat2 = Cat("Catycat", 3)
+cat3 = Cat("Riku", 2)
+
+cats = [cat1, cat2, cat3]
+
+oldest_cat = find_oldest_cat(cats)
+print(f"The oldest cat is {oldest_cat.name}, and is {oldest_cat.age} years old.")
+
+# syntax is one of the worst things in python !!!!!
+# exercie 2 Dogs
+
+
+class Dog:
+    def __init__(self, name, height):
+        self.name = name
+        self.height = height
+
+    def bark(self):
+        print(f"{self.name} goes woof !")
+
+    # 	->	print(f"{self.name} goes woof!") uses the dog’s name to print a message.
+    # dog are the object - bark a method by self
+    def jump(self):
+        jump_height = self.height * 2
+        print(f"{self.name} jumps {jump_height} height")
+
+
+# 9 --- the point to check the height = x.height > y.heght =
+# print + the other possibility
+
+
+david_dog = Dog("Rex", 50)
+print(f" {david_dog.name} jump as {david_dog.height} cm")
+david_dog.bark()
+david_dog.jump()
+
+sarah_dog = Dog("Teacup", 20)
+print(f"{sarah_dog.name} jump as {sarah_dog.height}")
+sarah_dog.bark()
+sarah_dog.jump()
+
+
+if sarah_dog.height > david_dog.height:
+    print(f"{sarah_dog.name} is bigger thant {david_dog.name}")
+else:
+    print(f"{david_dog.name} is bigger thant {sarah_dog.name}")
+## important the structure!! if the if was before it will not work cause the code do not find if the var come later !
+print("""new exercice """)
+
+
+# lets try to make better ! !
+# exercice 3 who's the song producer
+# remind ! a method ( Function ) always have argument = self it a valu but can be many other valu
+class song:
+    def __init__(self, lyrics):
+        self.lyrics = lyrics
+
+    # 2. how to do to make the <p> print ( the valu of the first function)
+    # valu lyric in argument of singmeasong
+    # ->> lyric, lyric, lyric --> integrate to ->x
+    def sing_me_a_song(self):
+        for line in self.lyrics:
+            print(line)
+
+
+stairway = song(
+    [
+        "There’s a lady who's sure",
+        "all that glitters is gold",
+        "and she’s buying a stairway to heaven",
+    ]
+)
+
+
+stairway.sing_me_a_song()
+
+# new exercice
+
+class zoo:
+    def __init__(self, zoo_name):
+        self.animals = []
+        self.name = zoo_name
+
+    # this method add new animal into animal
+    # the right logic : how -> it's a list - to add to list.app(to the valu )
+    def add_animal(self, new_animal):
+        if new_animal not in self.animals:
+            self.animals.append(new_animal)
+
+    def get_animal(self):
+        print(self.animals)
+
+    # def sell_animals(parameter!!!!):
+    def sell_animals(self, animal_sold):
+        # if = del
+        if animal_sold in self.animals:
+            self.animals.remove(animal_sold)
+
+    # now little bit more worked, order the list animals:[ 0:alphabet(valu)]
+    # [ dog, cat, monkey, bird ] in order for valu
+    def sort_animal(self):
+        self.animals = sorted(self.animals)
+        # sorted () function return item from a list [ self.animals]
+
+    # here the most hard take every groupe of list and add to groupe
+    # how ? which componement i have =
+    def get_groups(self):
+        grouped_animals = {}
+        for animal in self.animals:
+            first_letter = animal[0]
+            if first_letter not in grouped_animals:
+             grouped_animals[first_letter] = [animal]
+            else:
+             grouped_animals[first_letter].append(animal)
+
+        for group in grouped_animals:
+            print(f"{group}: {grouped_animals[group]}")
+
+#Create the object
+
+zoo_instance = zoo("Ramat Gan Safari")
+zoo_instance.add_animal("Giraffe")
+zoo_instance.add_animal("Elephant")
+zoo_instance.add_animal("Lion")
+zoo_instance.add_animal("Zebra")
+zoo_instance.add_animal("Baboon")
+zoo_instance.add_animal("ect")
+
+
+
+
+zoo_instance.sort_animal()
+zoo_instance.get_groups()
