@@ -1,0 +1,33 @@
+# let's do it !
+
+# challenge 1 
+
+# When a question like here just pseudo_code 
+
+# an input that send back in alphabetically way = print sequence user enter in sequence sorted
+
+input_user = input("Enter a sequence of words separated by commas: ")
+
+# stock the informationon list
+words_sequence_stock = input_user.split(",")
+
+words_sequence_stock.store()
+
+sorted_string = ",".join(words_sequence_stock)
+
+
+print(sorted_string)
+
+# challenge 2
+
+def longest_word(sentence):
+    words = sentence.split()
+    longest = {}
+    for word in words:
+        if len(word) >= len(longest):
+            longest = word
+    return longest
+
+print(longest_word("Margaret's toy is a pretty doll."))
+print(longest_word("A thing of beauty is a joy forever."))
+print(longest_word("Forgetfulness is by all means powerless!"))
