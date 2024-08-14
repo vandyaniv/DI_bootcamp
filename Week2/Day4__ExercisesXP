@@ -1,1 +1,50 @@
+import os
+import random
+
+if os.path.exists("word.txt"):
+    with open("word.txt", "r") as file:
+        word_list = file.readlines()  
+        word_list = [word.strip() for word in word_list]  
+        get_words_from_file = random.choice(word_list)  
+        print("I suggest you today the word:", get_words_from_file)
+else:
+    print("the file doesn't exist man! Attention!")
+
+
+# i need to check all the def class function back 
+print("exercice number 2")
+
+print(" ")
+print(" ")
+
+# 2 fkc hours !!! gosh 
+#  That can be very useful for password, username or in general 
+#   exerice number 2
+
+import json
+
+sampleJson = """{ 
+   "company":{ 
+      "employee":{ 
+         "name":"emma",
+         "payable":{ 
+            "salary":7000,
+            "bonus":800
+         }
+      }
+   }
+}"""
+
+data = json.loads(sampleJson)
+print(type(data))
+print(data["company"]["employee"]["payable"]["salary"])
+
+# its a long way i know but the fast actually that i have 🥸
+# may i should think on for in data 
+
+data["company"]["employee"]["birth_date"] = "1993-04-08"
+
+print(json.dumps(data))
+
+print(data)
 
