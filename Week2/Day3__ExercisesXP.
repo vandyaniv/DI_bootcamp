@@ -1,1 +1,100 @@
 
+# my code start here 
+#lets start but before pseudo_code 
+#   class currency 
+    # attribute 1
+    # attribute 2
+ 
+   # methode - _str - attribut. 1 
+     # methode  - int 
+      # methode  -repr
+
+# 1 exercice currencies
+
+class Currency:
+    def __init__(self, currency, amount):
+        self.currency = currency
+        self.amount = amount
+    
+    def __str__(self):
+        return f"{self.currency} is {self.amount} "
+# return all the valu but how many can be 
+    
+    def __int__(self):
+        return self.amount
+
+    def __repr__(self):
+        return f"{self.amount}  {self.currency}"
+
+    def __add__(self):
+        return {self.amount} +{self.amount}
+
+        
+    
+    
+
+
+
+c1 = Currency('dollar', 5)
+c2 = Currency('dollar', 10)
+print(str(c1))
+
+# each method have is own language is confusing 
+print(int(c1))
+
+print(repr(c1))
+# can be hard to now  f "{1.attribute_class } + {2.attribute_C urrency}'
+
+#print(add(c1))
+ # object + valu_attribute
+
+
+def sum_addition(a, b):
+    result = a + b
+
+    
+# exercise_one.py
+
+from func import sum_addition
+
+sum_addition(10, 6) 
+
+print(sum_addition)
+# exercice 3
+import random
+import string
+
+
+def generate_random_password(lenght=5):
+    password = string.ascii_letters 
+
+    for i in range(lenght):
+     print(i)
+
+
+
+generate_random_password()
+print (generate_random_password) 
+
+# <function generate_random_password at 0x1049e2340>  without stop it can take my ram need to stop it 😅
+# def  password lets think on other way 
+
+
+
+import datetime
+
+x = datetime.datetime.now()
+
+print(x)
+
+#exercice 5 
+# from x.now -> to january 
+
+#first_january_of_year = datetime.datetime(x.year, 1, 1)
+#print(first_january_of_year)
+
+ma_date = datetime.datetime(2025, 1, 1)
+
+print(ma_date)
+
+
