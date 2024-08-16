@@ -1,0 +1,26 @@
+# need many instruction i made a a texte with instruction to get in the function
+# open a vu to the speedtest webside very intersting 
+import time 
+
+import requests
+
+def counter_load_time(url):
+  start_time = time.time()
+  throw = requests.get(url)
+  end_time = time.time()
+
+  time_beetwen = end_time - start_time
+  return time_beetwen
+
+urls = [
+    'https://www.youtube.com/watch?v=C0LmHQkJUs4',
+    'https://www.google.com',
+    'https://www.realpython.com',
+     'https://www.ynet.co.il'
+]
+
+
+for url in urls:
+    result_time_loading = counter_load_time(url)
+    print(f"loarding time for {url} is about {result_time_loading} segond.")
+
