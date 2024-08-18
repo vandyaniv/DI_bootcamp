@@ -1,0 +1,86 @@
+import random
+
+name = input("Please choose your name : ")
+
+class Game:
+    def __init__(self):  # initialise la class
+        self.user_item = 0  # attribut comptabilise les points joueurs
+        self.computer_item = 0  
+        self.match_nul = 0  
+
+    def get_user_item(self):  # methode, fonctione tant que il continue le jeu continue
+        while True:
+            user_item = input(
+                "Please choose your move: (r)ock, (p)aper, (s)cissors, or (q)uit: "
+            ).lower()
+            if user_item == "q":
+                return None
+            if user_item in ["r", "p", "s"]:
+                return user_item  # Retourne le choix de l'utilisateur s'il est valide
+            print("Invalid choice, please try again.")
+
+    # Choix aléatoire pour l'ordinateur
+    def get_computer_item(self):
+        random_number = random.randint(1, 3)
+        if random_number == 1:
+            print("ROCK")
+            return "r"
+        elif random_number == 2:
+            print("PAPER")
+            return "p"
+        else:
+            print("SCISSORS")
+            return "s"
+
+        # Détermination du résultat du jeu
+
+    def get_game_result(self, user_item, computer_item):
+        if user_item == computer_item:
+            print("IT'S A TIE!")
+            self.match_nul += 1
+        elif (
+            (user_item == "r" and computer_item == "s")
+            or (user_item == "p" and computer_item == "r")
+            or (user_item == "s" and computer_item == "p")
+        ):
+            print("You won!")
+            self.user_item += 1
+        else:
+            print("You loose!")
+            self.computer_item += 1
+
+    def play(self):  # Fonction pour jouer une partie
+        user_item = self.get_user_item()
+        if user_item is None:  
+            return False
+
+        computer_item = self.get_computer_item()
+
+        # Affichage des choix
+        if user_item == "r":
+            print("ROCK vs ...", end=" ")
+        elif user_item == "p":
+            print("PAPER vs ...", end=" ")
+        else:
+            print("SCISSORS vs ...", end=" ")
+
+        # Affiche le choix de l'ordinateur
+        if computer_item == "r":
+            print("ROCK")
+        elif computer_item == "p":
+            print("PAPER")
+        else:
+            print("SCISSORS")
+
+        # Détermine le résultat du jeu
+        self.get_game_result(user_item, computer_item)
+        return True
+
+game = Game()
+while True:
+    if not game.play():  
+        break
+
+print(
+    f"\n{name}, you won {game.user_item} times, lost {game.computer_item} times, and tied {game.match_nul} times."
+)
