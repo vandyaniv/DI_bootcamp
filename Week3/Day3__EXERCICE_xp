@@ -1,0 +1,70 @@
+-- Database: dvdrental
+
+-- DROP DATABASE IF EXISTS dvdrental;
+
+CREATE DATABASE dvdrental
+    WITH
+    OWNER = elivanmak
+    ENCODING = 'UTF8'
+    LC_COLLATE = 'C'
+    LC_CTYPE = 'C'
+    LOCALE_PROVIDER = 'libc'
+    TABLESPACE = pg_default
+    CONNECTION LIMIT = -1
+    IS_TEMPLATE = False;
+
+
+	SELECT * FROM inventory 
+
+	-- fast checking if there 
+
+--1. Get a list from table_language
+SELECT * FROM language
+
+-- 2. select the details : film title, description, and language name.
+
+SELECT film.title, film.description, language.name AS language_name
+FROM film
+JOIN language ON film.language_id = language.language_id;
+
+     -- 3. Get all languages, even if there are no films in those languages 
+-- select the following details : film title, description, and language name.
+
+             --4. Create a new table called new_film with the following columns 
+                   --≥ id, name. Add some new films to the table.
+
+CREATE TABLE new_film(
+
+    id_new_film SERIAL PRIMARY KEY,
+	name_new_film VARCHAR (50) NOT NULL
+);
+
+SELECT * FROM new_film
+
+
+INSERT INTO new_film (name_new_film) VALUES ('film1'), ('film2');
+
+SELECT * FROM new_film
+
+ --5 Create new_table 
+ 
+CREATE TABLE customer_review (
+    review_id SERIAL PRIMARY KEY,
+    film_id INT REFERENCES new_film(id_new_film) ON DELETE CASCADE,
+    language_id INT REFERENCES language(language_id),
+    title VARCHAR(255) NOT NULL,
+    score INT CHECK (score >= 1 AND score <= 10),
+    review_text TEXT,
+    last_update TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Timestamp amzing tool !!!
+
+SELECT * FROM customer_review
+
+INSERT INTO customer_review (film_id, language_id, title, score, review_text)
+VALUES 
+(3, 5, 'Critique pour Mon Nouveau Film Français', 9, 'Un excellent film en français, vraiment captivant !');
+
+-- ok im out of time 
+
