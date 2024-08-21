@@ -1,0 +1,136 @@
+-- Database: Table_relationships_Ex
+
+-- DROP DATABASE IF EXISTS "Table_relationships_Ex";
+
+CREATE DATABASE "Table_relationships_Ex"
+    WITH
+    OWNER = elivanmak
+    ENCODING = 'UTF8'
+    LC_COLLATE = 'C'
+    LC_CTYPE = 'C'
+    LOCALE_PROVIDER = 'libc'
+    TABLESPACE = pg_default
+    CONNECTION LIMIT = -1
+    IS_TEMPLATE = False;
+
+
+
+	CREATE TABLE customer (
+    id SERIAL PRIMARY KEY, 
+    first_name VARCHAR(50),
+    last_name VARCHAR(50) NOT NULL
+	);
+
+INSERT INTO customer (first_name, last_name) VALUES 
+('John', 'Doe'),
+('Jerome', 'Lalu'),
+('Lea', 'Rive');
+
+SELECT * FROM customer;
+
+
+CREATE TABLE customer_profile (
+    id SERIAL PRIMARY KEY, 
+    isLoggedIn BOOLEAN DEFAULT false, 
+    customer_id INTEGER NOT NULL,  -- Clé étrangère
+    CONSTRAINT fk_customer_id FOREIGN KEY (customer_id) REFERENCES customer(id)
+);
+
+SELECT * FROM customer_profile;
+
+
+INSERT INTO customer_profile (isLoggedIn, customer_id) VALUES 
+(true, (SELECT id FROM customer WHERE first_name = 'John' AND last_name = 'Doe')),
+(false, (SELECT id FROM customer WHERE first_name = 'Jerome' AND last_name = 'Lalu'));
+
+SELECT * FROM customer_profile;
+
+-- ok made an error its my third time im starting over and over so i will just add a column 
+
+
+ALTER TABLE customer_profile
+ADD COLUMN first_name VARCHAR(50);
+
+SELECT * FROM customer_profile;
+
+
+UPDATE customer_profile
+SET first_name = customer.first_name
+FROM customer
+WHERE customer_profile.customer_id = customer.id;
+
+
+SELECT * FROM customer_profile;
+
+
+/************ P A R T  2 ****************/
+
+CREATE TABLE Book (
+  book_id SERIAL PRIMARY KEY,
+  title VARCHAR(50) NOT NULL, 
+  author VARCHAR(50) NOT NULL
+);
+
+INSERT INTO Book (title, author) VALUES 
+ ('Alice In Wonderland', 'Lewis Carroll'),
+ ('Harry Potter', 'J.K. Rowling'),
+ ('To Kill a Mockingbird', 'Harper Lee');
+ 
+
+SELECT * FROM Book;
+
+
+
+
+
+CREATE TABLE student (
+  student_id SERIAL PRIMARY KEY,
+  name VARCHAR (50) NOT NULL UNIQUE, 
+  age iNTEGER CHECK (age <= (DATE_PART('year', CURRENT_DATE) - 2006))
+
+);
+SELECT * FROM student;
+
+
+INSERT INTO Student (name, age) VALUES 
+('John', 12),
+('Lera', 11),
+('Patrick', 10),
+('Bob', 14);
+
+
+SELECT * FROM student;
+
+
+
+-- Number 5
+--Create a table named Library, with the columns :
+-- Library is a table of joined if i can call that like that 
+
+CREATE TABLE Library (
+  book_fk_id INTEGER NOT NULL,  
+  student_fk_id INTEGER NOT NULL,  
+  borrowed_date DATE NOT NULL,  
+  PRIMARY KEY (book_fk_id, student_fk_id),  -- Clé primaire combinée
+  CONSTRAINT fk_book FOREIGN KEY (book_fk_id) REFERENCES Book(book_id),
+  CONSTRAINT fk_student FOREIGN KEY (student_fk_id) REFERENCES Student(student_id)
+);
+
+
+SELECT * FROM Library;
+
+
+INSERT INTO Library (book_fk_id, student_fk_id, borrowed_date) VALUES
+
+((SELECT book_id FROM Book WHERE title = 'Harry Potter'), 
+ (SELECT student_id FROM Student WHERE name = 'John'), 
+ '2023-01-15');
+
+
+SELECT * FROM Library;
+
+
+
+
+
+ 
