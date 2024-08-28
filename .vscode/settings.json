@@ -223,8 +223,7 @@
     "terraform": ["terraform"]
   },
   "vsicons.presets.nestjs": true,
-  "editor.language.brackets": [
-
-  ],
-  "workbench.settings.useSplitJSON": false
+  "editor.language.brackets": [],
+  "workbench.settings.useSplitJSON": false,
+  "liveServer.settings.port": 5501
 }
