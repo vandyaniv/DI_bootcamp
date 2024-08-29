@@ -1,0 +1,53 @@
+Instructions
+
+Téléchargez d'abord ce fichier texte : faites un clic droit
+ -> Enregistrer sous
+
+Create a new file called anagram_checker.py which 
+contains a class called AnagramChecker.
+
+class AnagramChecker:
+
+Exemple : Aimer est l'anagramme de Marie.
+
+definition de anagram 
+
+
+La classe doit avoir les méthodes suivantes :
+__init__- doit charger le fichier de liste de mots (fichier texte)
+ dans une variable, afin qu'il puisse être recherché plus tard dans le code.
+
+def __init__ (self, load_word)
+self.load_word = []
+
+
+is_valid_word(word)- doit vérifier si le mot donné (c'est-à-dire le mot de l'utilisateur) est un mot valide.
+
+get_anagrams(word)- devrait trouver tous les anagrammes pour le mot donné. (par exemple, si le mot de l'utilisateur est "viande", la fonction devrait renvoyer une liste contenant ["mate", "apprivoiser", "team"].)
+
+Hint: you might want to create a separate method called is_anagram(word1, word2), that will compare 2 words and return True if they contain the same letters (but not in the same order), and False if not.
+
+Remarque : aucune des méthodes de la classe ne doit imprimer quoi que ce soit.
+
+
+
+
+
+
+import os
+
+class Planets:
+    def __init__(self, name, dist, real):
+        self.name = name
+
+with open('file.txt', 'r') as file:
+    x = file.read()
+
+planets = []
+for z in x.split("\n"):
+    if z:
+        planet = Planets(*z.split())
+        planets.append(planet)
+
+for planet in planets:
+    print(planet.name)
