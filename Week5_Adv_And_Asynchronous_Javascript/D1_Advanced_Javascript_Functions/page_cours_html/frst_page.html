@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🌐 Cours JavaScript : Méthodes Utiles</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+
+  <!-- Navbar for the "Scope en JavaScript" page -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="./frst_page.html">JavaScript Cours</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="./frst_page.html">Introduction</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./second_page.html">Fonctions</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="./third_function.html">Scope</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./third_b_function.html">Strings</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./five_c_function.html">Analyse
+              Étudiants</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container mt-4">
+    <h1 class="text-center">Cours JavaScript : Méthodes Utiles</h1>
+    <div id="includes-array" class="mt-5">
+      <h2>Méthode `includes()` (Array Method)</h2>
+      <p>La méthode <code>includes()</code> pour les tableaux en JavaScript vérifie si un élément spécifique est présent
+        dans le tableau. Elle retourne <code>true</code> si le tableau contient l'élément, sinon <code>false</code>.</p>
+      <pre><code>let fruits = ['pomme', 'banane', 'orange'];
+console.log(fruits.includes('banane')); // → true
+console.log(fruits.includes('mangue')); // → false</code></pre>
+      <p><strong>Explication :</strong> Dans cet exemple, <code>includes('banane')</code> retourne <code>true</code> car
+        <code>'banane'</code> est bien présent dans le tableau <code>fruits</code>. À l'inverse,
+        <code>includes('mangue')</code> retourne <code>false</code> car <code>'mangue'</code> n'y figure pas.
+      </p>
+    </div>
+
+    <div id="includes-string" class="mt-5">
+      <h2>Méthode `includes()` (String Method)</h2>
+      <p>La méthode <code>includes()</code> pour les chaînes de caractères en JavaScript détermine si une chaîne
+        contient une sous-chaîne spécifiée. Elle retourne <code>true</code> si la sous-chaîne est présente, sinon
+        <code>false</code>.
+      </p>
+      <pre><code>let phrase = 'Bonjour tout le monde';
+console.log(phrase.includes('tout')); // → true
+console.log(phrase.includes('soir')); // → false</code></pre>
+      <p><strong>Explication :</strong> Ici, <code>includes('tout')</code> retourne <code>true</code> car
+        <code>'tout'</code> est une partie de la chaîne <code>phrase</code>. En revanche, <code>includes('soir')</code>
+        retourne <code>false</code> car <code>'soir'</code> n'est pas présent dans <code>phrase</code>.
+      </p>
+    </div>
+
+    <div id="replace" class="mt-5">
+      <h2>Méthode `replace()`</h2>
+      <p>Les chaînes de caractères en JavaScript disposent d'une méthode <code>replace()</code> qui permet de remplacer
+        une partie de la chaîne par une autre chaîne. Cette méthode ne modifie pas la chaîne d'origine, mais retourne
+        une nouvelle chaîne modifiée.</p>
+      <pre><code>console.log("bouteille".replace("t", "z")); // → bouzeille</code></pre>
+      <p><strong>Explication :</strong> Ici, <code>replace("t", "z")</code> remplace le premier <code>'t'</code> de
+        <code>'bouteille'</code> par <code>'z'</code>, retournant la chaîne <code>'bouzeille'</code>.
+      </p>
+    </div>
+
+    <div id="padStart" class="mt-5">
+      <h2>Méthode `padStart()`</h2>
+      <p>La méthode <code>padStart()</code> en JavaScript est utilisée pour ajouter des caractères au début d'une chaîne
+        jusqu'à ce qu'elle atteigne une longueur spécifiée. Le complément est appliqué à gauche de la chaîne.</p>
+      <pre><code>let numero = '5';
+let paddedNum = numero.padStart(3, '0'); // → '005'</code></pre>
+      <p><strong>Explication :</strong> Ici, la chaîne <code>'5'</code> est complétée par des zéros (<code>'0'</code>) à
+        gauche jusqu'à atteindre une longueur de 3 caractères, ce qui donne <code>'005'</code>.</p>
+    </div>
+
+    <div id="padEnd" class="mt-5">
+      <h2>Méthode `padEnd()`</h2>
+      <p>La méthode <code>padEnd()</code> en JavaScript est utilisée pour ajouter des caractères à la fin d'une chaîne
+        jusqu'à ce qu'elle atteigne une longueur spécifiée. Le complément est appliqué à droite de la chaîne.</p>
+      <pre><code>let numero = '5';
+let paddedNum = numero.padEnd(3, '0'); // → '500'</code></pre>
+      <p><strong>Explication :</strong> Ici, la chaîne <code>'5'</code> est complétée par des zéros (<code>'0'</code>) à
+        droite jusqu'à atteindre une longueur de 3 caractères, ce qui donne <code>'500'</code>.</p>
+    </div>
+
+    <div id="trimStart" class="mt-5">
+      <h2>Méthode `trimStart()`</h2>
+      <p>La méthode <code>trimStart()</code> en JavaScript est utilisée pour enlever les espaces blancs au début d'une
+        chaîne de caractères. Cette méthode ne modifie pas les espaces présents à la fin ou à l'intérieur de la chaîne.
+      </p>
+      <pre><code>let texte = '   Bonjour';
+let trimmedText = texte.trimStart(); // → 'Bonjour'</code></pre>
+      <p><strong>Explication :</strong> Dans cet exemple, <code>trimStart()</code> retire les espaces au début de la
+        chaîne <code>'   Bonjour'</code>, laissant <code>'Bonjour'</code>.</p>
+    </div>
+
+    <div id="trimEnd" class="mt-5">
+      <h2>Méthode `trimEnd()`</h2>
+      <p>La méthode <code>trimEnd()</code> en JavaScript est utilisée pour enlever les espaces blancs à la fin d'une
+        chaîne de caractères. Cette méthode ne modifie pas les espaces présents au début ou à l'intérieur de la chaîne.
+      </p>
+      <pre><code>let texte = 'Bonjour   ';
+let trimmedText = texte.trimEnd(); // → 'Bonjour'</code></pre>
+      <p><strong>Explication :</strong> Ici, <code>trimEnd()</code> retire les espaces à la fin de la chaîne
+        <code>'Bonjour   '</code>, laissant <code>'Bonjour'</code>.
+      </p>
+    </div>
+
+    <div id="flat" class="mt-5">
+      <h2>Méthode `flat()`</h2>
+      <p>La méthode <code>flat()</code> en JavaScript est utilisée pour aplatir un tableau imbriqué, réduisant la
+        profondeur d'imbrication.</p>
+      <pre><code>let articles = [
+  ['Fruits', 'Légumes'],
+  ['Viande', 'Poisson'],
+  ['Pâtes', ['Riz', 'Céréales']]
+];
+
+let articlesSimplifies = articles.flat(2);
+console.log(articlesSimplifies); 
+// Résultat: ['Fruits', 'Légumes', 'Viande', 'Po
+
+// Résultat: ['Fruits', 'Légumes', 'Viande', 'Poisson', 'Pâtes', 'Riz', 'Céréales']</code></pre>
+      <p><strong>Explication :</strong> Ici, la méthode <code>flat(2)</code> aplatit le tableau
+
+        <code>articles</code>
+        jusqu'à
+        une profondeur de 2 niveaux, ce qui élimine les imbrications et produit un tableau simple contenant tous les
+        éléments
+        : <code>['Fruits', 'Légumes', 'Viande', 'Poisson', 'Pâtes', 'Riz', 'Céréales']</code>.
+      </p>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🚀 Cours JavaScript | Validation d'Utilisateurs</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+
+<body>
+
+  <!-- Navbar for the "Analyser une Liste d'Étudiants" page -->
+  <!-- Navbar for the "Scope en JavaScript" page -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="./frst_page.html">JavaScript Cours</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="./frst_page.html">Introduction</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./second_page.html">Fonctions</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="./third_function.html">Scope</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./third_b_function.html">Strings</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./five_c_function.html">Analyse
+              Étudiants</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container my-5">
+    <h1 class="text-center">Cours JavaScript : Validation d'Utilisateurs</h1>
+
+    <div class="my-4">
+      <h2>Objectif : Créer une Fonction de Validation d'Utilisateurs</h2>
+      <p>L'objectif est de créer une fonction qui va valider plusieurs informations concernant un utilisateur lors de
+        son inscription. Nous allons :</p>
+      <ul>
+        <li>Vérifier le <strong>nom d'utilisateur</strong> (qu'il soit suffisamment long).</li>
+        <li>Vérifier l'<strong>âge</strong> (qu'il soit au-dessus d'un certain seuil).</li>
+        <li>Vérifier l'<strong>adresse email</strong> (qu'elle soit bien formatée).</li>
+        <li>Vérifier le <strong>mot de passe</strong> (qu'il respecte certains critères de sécurité).</li>
+      </ul>
+    </div>
+
+    <div class="my-4">
+      <h2>Étape 1 : Créer une Fonction Simple</h2>
+      <p>Commençons par une fonction simple qui ne valide qu'un seul aspect : la longueur du nom d'utilisateur.</p>
+      <pre><code>function validerNomUtilisateur(nom) {
+  if (nom.length &lt; 5) {
+    return "Erreur : Le nom d'utilisateur doit contenir au moins 5 caractères.";
+  } else {
+    return "Nom d'utilisateur valide.";
+  }
+}
+
+console.log(validerNomUtilisateur("John"));   // Erreur
+console.log(validerNomUtilisateur("JohnDoe")); // Valide</code></pre>
+
+      <p><strong>Explication</strong> :</p>
+      <ul>
+        <li><strong>Condition <code>if</code></strong> : Vérifie si la longueur du nom est inférieure à 5. Si oui, une
+          erreur est retournée. Sinon, la validation est acceptée.</li>
+        <li><strong><code>return</code></strong> : La fonction retourne soit une erreur, soit un message de validation.
+        </li>
+      </ul>
+    </div>
+
+    <div class="my-4">
+      <h2>Étape 2 : Ajouter d'Autres Vérifications (Âge et Email)</h2>
+      <p>Maintenant, étendons la fonction pour vérifier également l'âge et l'email.</p>
+      <pre><code>function validerUtilisateur(utilisateur) {
+  if (utilisateur.nom.length &lt; 5) {
+    return "Erreur : Le nom d'utilisateur doit contenir au moins 5 caractères.";
+  }
+
+  if (utilisateur.age &lt; 18) {
+    return "Erreur : Vous devez avoir au moins 18 ans.";
+  }
+
+  if (!utilisateur.email.includes("@") || !utilisateur.email.includes(".")) {
+    return "Erreur : Adresse email invalide.";
+  }
+
+  return "Toutes les validations sont réussies!";
+}
+
+let utilisateur1 = {
+  nom: "Jane",
+  age: 25,
+  email: "jane.doe@example.com"
+};
+
+console.log(validerUtilisateur(utilisateur1)); // Toutes les validations sont réussies!</code></pre>
+
+      <p><strong>Explication</strong> :</p>
+      <ul>
+        <li>Nous avons ajouté deux nouvelles vérifications : l'âge et l'email.</li>
+        <li>Chaque vérification est indépendante, et si une échoue, un message d'erreur est immédiatement retourné.</li>
+      </ul>
+    </div>
+
+    <div class="my-4">
+      <h2>Étape 3 : Ajouter la Vérification du Mot de Passe</h2>
+      <p>Ajoutons maintenant la vérification du mot de passe avec une fonction séparée pour la clarté.</p>
+      <pre><code>function validerMotDePasse(motDePasse) {
+  const contientMajuscule = /[A-Z]/.test(motDePasse);
+  const contientChiffre = /[0-9]/.test(motDePasse);
+  const contientCaractereSpecial = /[!@#$%^&*]/.test(motDePasse);
+
+  return motDePasse.length &gt;= 8 && contientMajuscule && contientChiffre && contientCaractereSpecial;
+}
+
+function validerUtilisateur(utilisateur) {
+  if (utilisateur.nom.length &lt; 5) {
+    return "Erreur : Le nom d'utilisateur doit contenir au moins 5 caractères.";
+  }
+
+  if (utilisateur.age &lt; 18) {
+    return "Erreur : Vous devez avoir au moins 18 ans.";
+  }
+
+  if (!utilisateur.email.includes("@") || !utilisateur.email.includes(".")) {
+    return "Erreur : Adresse email invalide.";
+  }
+
+  if (!validerMotDePasse(utilisateur.motDePasse)) {
+    return "Erreur : Le mot de passe doit contenir au moins 8 caractères, une majuscule, un chiffre, et un caractère spécial.";
+  }
+
+  return "Toutes les validations sont réussies!";
+}
+
+let utilisateur2 = {
+  nom: "JohnDoe",
+  age: 22,
+  email: "john.doe@example.com",
+  motDePasse: "Password123!"
+};
+
+console.log(validerUtilisateur(utilisateur2)); // Toutes les validations sont réussies!</code></pre>
+
+      <p><strong>Explication</strong> :</p>
+      <ul>
+        <li><strong><code>validerMotDePasse</code></strong> : Cette fonction vérifie que le mot de passe a au moins 8
+          caractères, contient une majuscule, un chiffre, et un caractère spécial.</li>
+        <li><strong>Combinaison des vérifications</strong> : La fonction principale <code>validerUtilisateur</code>
+          appelle <code>validerMotDePasse</code> pour inclure la validation du mot de passe.</li>
+      </ul>
+    </div>
+
+    <div class="my-4">
+      <h2>Étape 4 : Gérer Plusieurs Utilisateurs</h2>
+      <p>Supposons maintenant que vous deviez valider une liste d'utilisateurs, et retourner un rapport pour chacun
+        d'eux.</p>
+      <pre><code>function validerUtilisateurs(listeUtilisateurs) {
+  let resultats = [];
+
+  for (let i = 0; i &lt; listeUtilisateurs.length; i++) {
+    let utilisateur = listeUtilisateurs[i];
+    let resultat = validerUtilisateur(utilisateur);
+    resultats.push({ utilisateur: utilisateur.nom, resultat: resultat });
+  }
+
+  return resultats;
+}
+
+let utilisateurs = [
+  { nom: "JaneDoe", age: 25, email: "jane.doe@example.com", motDePasse: "JaneDoe2022!" },
+  { nom: "John", age: 17, email: "john@example", motDePasse: "Passwrd" },
+  { nom: "DoeJohn", age: 19, email: "doe.john@example.com", motDePasse: "DoeJohn2022!" }
+];
+
+console.log(validerUtilisateurs(utilisateurs));</code></pre>
+
+      <p><strong>Explication</strong> :</p>
+      <ul>
+        <li><strong>Boucle <code>for</code></strong> : Nous parcourons chaque utilisateur dans la liste.</li>
+        <li><strong>Stockage des résultats</strong> : Pour chaque utilisateur, nous validons les informations et
+          stockons le résultat dans un tableau <code>resultats</code>.</li>
+        <li><strong>Retour des résultats</strong> : La fonction retourne un tableau d'objets, chacun contenant le nom de
+          l'utilisateur et le résultat de sa validation.</li>
+      </ul>
+    </div>
+
+    <div class="my-4">
+      <h2>Étape 5 : Comprendre l'Ensemble</h2>
+      <p><strong>Récapitulons ce que nous avons fait :</strong></p>
+      <ul>
+        <li><strong>Fonctions imbriquées</strong> : <code>validerMotDePasse</code> est une fonction spécifique qui est
+          appelée à l'intérieur de <code>validerUtilisateur</code>.</li>
+        <li><strong>Conditions multiples</strong> : Nous avons utilisé plusieurs conditions pour valider différentes
+          parties de l'objet utilisateur.</li>
+        <li><strong>Boucle</strong> : Nous avons utilisé une boucle pour valider plusieurs utilisateurs et stocker les
+          résultats pour chacun.</li>
+        <li><strong>Retour d'objets</strong> : Nous avons utilisé des objets pour structurer les résultats de manière
+          claire et organisée.</li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

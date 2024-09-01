@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🚀 Analyse des Étudiants | Cours JavaScript</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container my-5">
+    <h1 class="text-center">Cours JavaScript : Analyse des Étudiants</h1>
+    <!-- Navbar for the "Analyser une Liste d'Étudiants" page -->
+    <!-- Navbar for the "Scope en JavaScript" page -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="./frst_page.html">JavaScript Cours</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="./frst_page.html">Introduction</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./second_page.html">Fonctions</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="./third_function.html">Scope</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./third_b_function.html">Strings</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./five_c_function.html">Analyse
+                Étudiants</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="my-4">
+      <h2>Objectif : Analyser une Liste d'Étudiants</h2>
+      <p>Notre fonction va faire les choses suivantes :</p>
+      <ol>
+        <li><strong>Calculer la moyenne des notes</strong>.</li>
+        <li><strong>Trouver les meilleurs élèves</strong> (ceux qui ont une note au-dessus d'un certain seuil).</li>
+        <li><strong>Vérifier s'il y a des étudiants qui ont échoué</strong> (en dessous d'une certaine note).</li>
+        <li><strong>Retourner un rapport détaillé</strong>.</li>
+      </ol>
+    </div>
+
+    <div class="my-4">
+      <h2>Étape 1 : Créer la Structure de Base</h2>
+      <p>Commençons par créer la structure de base de notre fonction. Nous allons d'abord traiter une seule tâche :
+        calculer la moyenne des notes.</p>
+      <pre><code>function analyserEtudiants(etudiants) {
+    let totalNotes = 0;
+
+    for (let i = 0; i &lt; etudiants.length; i++) {
+        totalNotes += etudiants[i].note; // Ajouter la note de chaque étudiant au total
+    }
+
+    let moyenne = totalNotes / etudiants.length; // Calculer la moyenne
+
+    return moyenne; // Retourner la moyenne
+}
+
+// Liste d'étudiants
+let etudiants = [
+    { nom: "Alice", note: 15 },
+    { nom: "Bob", note: 12 },
+    { nom: "Charlie", note: 17 },
+    { nom: "David", note: 8 }
+];
+
+console.log(analyserEtudiants(etudiants)); // Affiche la moyenne des notes</code></pre>
+
+      <p><strong>Explication</strong> :</p>
+      <ul>
+        <li><strong>Boucle <code>for</code></strong> : Nous parcourons chaque étudiant et additionnons ses notes dans
+          <code>totalNotes</code>.
+        </li>
+        <li><strong>Calcul de la moyenne</strong> : Une fois toutes les notes additionnées, nous divisons le total par
+          le nombre d'étudiants pour obtenir la moyenne.</li>
+        <li><strong>Retour de la moyenne</strong> : La fonction retourne la moyenne des notes.</li>
+      </ul>
+    </div>
+
+    <div class="my-4">
+      <h2>Étape 2 : Identifier les Meilleurs Élèves</h2>
+      <p>Ajoutons maintenant une partie pour identifier les meilleurs élèves, ceux qui ont une note supérieure à une
+        certaine valeur.</p>
+      <pre><code>function analyserEtudiants(etudiants) {
+    let totalNotes = 0;
+    let meilleurs = []; // Pour stocker les meilleurs élèves
+
+    for (let i = 0; i &lt; etudiants.length; i++) {
+        totalNotes += etudiants[i].note; // Ajouter la note de chaque étudiant au total
+
+        if (etudiants[i].note &gt;= 15) { // Seuil pour être un "meilleur élève"
+            meilleurs.push(etudiants[i].nom); // Ajouter le nom de l'élève à la liste des meilleurs
+        }
+    }
+
+    let moyenne = totalNotes / etudiants.length; // Calculer la moyenne
+
+    return {
+        moyenne: moyenne,
+        meilleurs: meilleurs // Retourner aussi les meilleurs élèves
+    };
+}
+
+let etudiants = [
+    { nom: "Alice", note: 15 },
+    { nom: "Bob", note: 12 },
+    { nom: "Charlie", note: 17 },
+    { nom: "David", note: 8 }
+];
+
+console.log(analyserEtudiants(etudiants)); 
+// Affiche la moyenne des notes et la liste des meilleurs élèves</code></pre>
+
+      <p><strong>Explication</strong> :</p>
+      <ul>
+        <li><strong>Tableau <code>meilleurs</code></strong> : Nous avons ajouté un tableau pour stocker les noms des
+          meilleurs élèves.</li>
+        <li><strong>Condition <code>if</code></strong> : Nous vérifions si la note d'un étudiant est supérieure ou égale
+          à 15. Si oui, nous ajoutons son nom à la liste des meilleurs.</li>
+        <li><strong>Retour d'un objet</strong> : Au lieu de retourner seulement la moyenne, nous retournons un objet qui
+          contient à la fois la moyenne et la liste des meilleurs élèves.</li>
+      </ul>
+    </div>
+
+    <div class="my-4">
+      <h2>Étape 3 : Vérifier les Échecs</h2>
+      <p>Ajoutons maintenant une vérification pour voir si des étudiants ont échoué (en dessous d'une note de 10).</p>
+      <pre><code>function analyserEtudiants(etudiants) {
+    let totalNotes = 0;
+    let meilleurs = [];
+    let echec = false; // Initialement, nous supposons qu'il n'y a pas d'échecs
+
+    for (let i = 0; i &lt; etudiants.length; i++) {
+        totalNotes += etudiants[i].note;
+
+        if (etudiants[i].note &gt;= 15) {
+            meilleurs.push(etudiants[i].nom);
+        }
+
+        if (etudiants[i].note &lt; 10) { // Vérifier si l'étudiant a échoué
+            echec = true; // Si une note est inférieure à 10, nous avons un échec
+        }
+    }
+
+    let moyenne = totalNotes / etudiants.length;
+
+    return {
+        moyenne: moyenne,
+        meilleurs: meilleurs,
+        echec: echec // Retourner aussi si quelqu'un a échoué
+    };
+}
+
+let etudiants = [
+    { nom: "Alice", note: 15 },
+    { nom: "Bob", note: 12 },
+    { nom: "Charlie", note: 17 },
+    { nom: "David", note: 8 }
+];
+
+console.log(analyserEtudiants(etudiants)); 
+// Affiche la moyenne, les meilleurs élèves, et si quelqu'un a échoué</code></pre>
+
+      <p><strong>Explication</strong> :</p>
+      <ul>
+        <li><strong>Variable <code>echec</code></strong> : Nous utilisons une variable booléenne <code>echec</code> pour
+          suivre si quelqu'un a échoué. Elle est initialisée à <code>false</code> et devient <code>true</code> si une
+          note est inférieure à 10.</li>
+        <li><strong>Retour de <code>echec</code></strong> : Nous ajoutons cette information au rapport retourné par la
+          fonction.</li>
+      </ul>
+    </div>
+
+    <div class="my-4">
+      <h2>Étape 4 : Rapport Final</h2>
+      <p>Enfin, nous allons combiner toutes ces informations dans un rapport final bien structuré.</p>
+      <pre><code>function analyserEtudiants(etudiants) {
+    let totalNotes = 0;
+    let meilleurs = [];
+    let echec = false;
+
+    for (let i = 0; i &lt; etudiants.length; i++) {
+        totalNotes += etudiants[i].note;
+
+        if (etudiants[i].note &gt;= 15) {
+            meilleurs.push(etudiants[i].nom);
+        }
+
+        if (etudiants[i].note &lt; 10) {
+            echec = true;
+        }
+    }
+
+    let moyenne = totalNotes / etudiants.length;
+
+    return {
+        moyenne: moyenne,
+        meilleurs: meilleurs,
+        echec: echec,
+        rapport: genererRapport(meilleurs, echec) // Ajouter un rapport final
+    };
+}
+
+function genererRapport(meilleurs, echec) {
+    let rapport = "Rapport de Classe:\n";
+    rapport += `Meilleurs élèves: ${meilleurs.join(", ")}\n`;
+    rapport += echec ? "Il y a eu des échecs." : "Tous les étudiants ont réussi.";
+    return rapport;
+}
+
+let etudiants = [
+    { nom: "Alice", note: 15 },
+    { nom: "Bob", note: 12 },
+    { nom: "Charlie", note: 17 },
+    { nom: "David", note: 8 }
+];
+
+console.log(analyserEtudiants(etudiants)); 
+// Affiche la moyenne, les meilleurs élèves, si quelqu'un a échoué, et le rapport final
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

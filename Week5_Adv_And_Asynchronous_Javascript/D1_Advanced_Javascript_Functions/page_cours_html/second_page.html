@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🚀 Cours JavaScript | Scope, Variables, et plus</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+
+<body>
+
+  <!-- Navbar for the "Scope en JavaScript" page -->
+  <!-- Navbar for the "Scope en JavaScript" page -->
+  < <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="./frst_page.html">JavaScript Cours</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="./frst_page.html">Introduction</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./second_page.html">Fonctions</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="./third_function.html">Scope</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./third_b_function.html">Strings</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./five_c_function.html">Analyse
+              Étudiants</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    </nav>
+    <div class="container my-5">
+      <h1 class="text-center">Cours JavaScript : Scope, Variables, et autres concepts</h1>
+
+      <div class="my-4">
+        <h2>Scope en JavaScript</h2>
+        <p>Le <strong>scope</strong> définit la durée de vie et la visibilité d'une variable. Les variables ne sont pas
+          visibles en dehors de la portée dans laquelle elles sont déclarées.</p>
+
+        <h3>A. Function Scope</h3>
+        <p>La portée d'une fonction signifie que les paramètres et les variables définis dans une fonction sont visibles
+          partout dans cette fonction, mais ne sont pas visibles à l'extérieur.</p>
+
+        <h4>Exemple et Explication :</h4>
+        <pre><code>function autoexecute() {
+    let x = 1;
+}
+console.log(x); 
+// Uncaught ReferenceError: x is not defined</code></pre>
+        <p><strong>Explication :</strong> Ici, la variable <code>x</code> est définie à l'intérieur de la fonction
+          <code>autoexecute()</code>. En dehors de cette fonction, elle n'existe pas, ce qui génère une erreur lorsque
+          vous essayez d'y accéder.
+        </p>
+
+        <h4>Cas Pratique :</h4>
+        <pre><code>function doSomething() {
+  console.log(x); // undefined
+  var x = 1;
+  console.log("x: ", x); // x: 1
+}
+doSomething();</code></pre>
+        <p><strong>Explication :</strong> La variable <code>x</code> est "hoistée" en haut de la fonction, donc elle est
+          reconnue avant sa déclaration, mais non initialisée (d'où la valeur <code>undefined</code>).</p>
+        <pre><code>function doSomething() {
+  console.log(x);
+  let x = 1;
+}
+doSomething();
+// Uncaught ReferenceError: x is not defined</code></pre>
+        <p><strong>Explication :</strong> Avec <code>let</code>, la variable n'est pas hoistée, donc elle ne peut être
+          accédée qu'après sa déclaration.</p>
+      </div>
+
+      <div class="my-4">
+        <h3>B. Block Scope</h3>
+        <p>La portée de bloc est définie avec des accolades <code>{}</code>. Les variables déclarées avec
+          <code>let</code>
+          et <code>const</code> dans un bloc ne sont accessibles qu'à l'intérieur de ce bloc.
+        </p>
+
+        <h4>Exemple et Explication :</h4>
+        <pre><code>let x = 1;
+{
+  let x = 2;
+}
+console.log("x: ", x); // x: 1</code></pre>
+        <p><strong>Explication :</strong> Ici, <code>x</code> est redéfinie à l'intérieur du bloc, sans affecter la
+          valeur
+          de <code>x</code> à l'extérieur du bloc.</p>
+        <pre><code>var x = 1;
+{
+  var x = 2;
+}
+console.log("x: ", x); // x: 2</code></pre>
+        <p><strong>Explication :</strong> Avec <code>var</code>, la portée de bloc n'existe pas. La variable
+          <code>x</code> est réassignée globalement, même à l'extérieur du bloc.
+        </p>
+        <h4>Cas Pratique :</h4>
+        <pre><code>function checkAge(age) {
+  if (age < 18) {
+    const message = "Désolé, vous êtes trop jeune.";
+  } else {
+    const message = "Félicitations! Vous êtes assez vieux!";
+  }
+
+  return message;
+}
+
+console.log(checkAge(21)); 
+// Uncaught ReferenceError: message is not defined</code></pre>
+        <p><strong>Explication :</strong> La variable <code>message</code> est définie dans un bloc et ne peut pas être
+          retournée en dehors de ce bloc. Pour corriger cela, déclarez <code>message</code> en dehors des blocs
+          <code>if/else</code>.
+        </p>
+      </div>
+
+      <div class="my-4">
+        <h2>Variables et Hoisting</h2>
+        <p>Les variables déclarées avec <code>var</code> sont "hoistées" (remontées) en haut de leur portée, tandis que
+          celles déclarées avec <code>let</code> ou <code>const</code> ne le sont pas.</p>
+
+        <h4>Cas Pratique :</h4>
+        <pre><code>var num = 8;
+var num = 10;
+
+console.log(num); // 10</code></pre>
+        <p><strong>Explication :</strong> Avec <code>var</code>, la redéclaration est possible, donc <code>num</code>
+          devient <code>10</code>.</p>
+      </div>
+
+      <div class="my-4">
+        <h2>Les Fonctions en JavaScript</h2>
+
+        <h3>Paramètres par Défaut</h3>
+        <p>Les paramètres par défaut permettent de définir des valeurs par défaut pour les paramètres de fonction, si
+          aucun argument n'est passé.</p>
+
+        <h4>Exemple et Explication :</h4>
+        <pre><code>function multiply(a, b = 1) {
+  return a * b;
+}
+
+console.log(multiply(5, 2)); // 10
+console.log(multiply(5));    // 5</code></pre>
+        <p><strong>Explication :</strong> Si <code>b</code> n'est pas fourni, sa valeur par défaut de <code>1</code> est
+          utilisée.</p>
+      </div>
+
+      <div class="my-4">
+        <h2>Les Conditionnels en JavaScript</h2>
+
+        <h3>L'Opérateur Ternaire</h3>
+        <p>L'opérateur ternaire est une façon succincte d'écrire des conditions. Il prend trois opérandes : une
+          condition,
+          une expression si la condition est vraie, et une autre si elle est fausse.</p>
+
+        <h4>Exemple et Explication :</h4>
+        <pre><code>function getFee(isMember) {
+  return (isMember ? "$2.00" : "$10.00");
+}
+
+console.log(getFee(true));  // "$2.00"
+console.log(getFee(false)); // "$10.00"</code></pre>
+        <p><strong>Explication :</strong> Si <code>isMember</code> est vrai, la fonction retourne <code>"$2.00"</code>,
+          sinon <code>"$10.00"</code>.</p>
+
+        <h4>Cas Pratique :</h4>
+        <pre><code>function checkYear(year) {
+  return year > 2000 ? "Vous êtes au 21ème siècle" : "Vous vivez au Moyen Âge";
+}
+
+console.log(checkYear(2021)); // "Vous êtes au 21ème siècle"
+console.log(checkYear(1999)); // "Vous vivez au Moyen Âge"</code></pre>
+      </div>
+
+      <div class="my-4">
+        <h2>Les Chaînes de Caractères en JavaScript</h2>
+
+        <h3>Les Templates Strings</h3>
+        <p>Les templates strings permettent d'inclure des expressions dans une chaîne de caractères avec une syntaxe
+          plus
+          lisible. Ils sont délimités par des accents graves <code>` `</code> et peuvent inclure des expressions en
+          utilisant <code>${}</code>.</p>
+
+        <h4>Exemple et Explication :</h4>
+        <pre><code>let a = 5;
+let b = 10;
+console.log(`La somme est ${a + b} et le double est ${2 * a + b}.`);
+// "La somme est 15 et le double est 20."</code></pre>
+        <p><strong>Explication :</strong> La syntaxe <code>${expression}</code> permet d'inclure directement le résultat
+          d'une expression dans une chaîne de caractères.</p>
+
+        <h4>Cas Pratique :</h4>
+        <pre><code>let nom = "Alice";
+let age = 30;
+let message = `Bonjour, je m'appelle ${nom}.
+J'ai ${age} ans.
+Ravi de vous rencontrer !`;
+
+console.log(message);</code></pre>
+        <p><strong>Explication :</strong> Les templates strings permettent d'insérer des variables et de créer des
+          chaînes
+          multi-lignes de manière intuitive.</p>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

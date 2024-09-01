@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🚀 Cours JavaScript | Introduction aux Fonctions</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+
+<body>
+
+  <!-- Navbar for the "Introduction aux Fonctions en JavaScript" page -->
+  <!-- Navbar for the "Scope en JavaScript" page -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="./frst_page.html">JavaScript Cours</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="./frst_page.html">Introduction</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./second_page.html">Fonctions</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="./third_function.html">Scope</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./third_b_function.html">Strings</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./five_c_function.html">Analyse
+              Étudiants</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container my-5">
+    <h1 class="text-center">Cours JavaScript : Introduction aux Fonctions</h1>
+
+    <div class="my-4">
+      <h2>Introduction aux Fonctions en JavaScript</h2>
+      <p>Une fonction en JavaScript est un bloc de code conçu pour accomplir une tâche spécifique. Vous pouvez penser à
+        une fonction comme à une petite machine : vous lui donnez des données (appelées <strong>paramètres</strong> ou
+        <strong>arguments</strong>), elle fait quelque chose avec ces données, et elle peut vous renvoyer un résultat
+        (appelé <strong>valeur de retour</strong>).
+      </p>
+
+      <h3>Structure de Base d'une Fonction</h3>
+      <p>Voici à quoi ressemble une fonction de base en JavaScript :</p>
+      <pre><code>function nomDeLaFonction(parametre1, parametre2) {
+  // Corps de la fonction : le code qui fait quelque chose
+  return parametre1 + parametre2; // Retourne le résultat
+}</code></pre>
+      <ul>
+        <li><strong>function</strong> : Mot-clé pour déclarer une fonction.</li>
+        <li><strong>nomDeLaFonction</strong> : Nom que vous donnez à la fonction.</li>
+        <li><strong>parametre1, parametre2</strong> : Les données que vous passez à la fonction.</li>
+        <li><strong>return</strong> : Mot-clé pour retourner un résultat.</li>
+      </ul>
+
+      <h3>Exemple Simple</h3>
+      <p>Imaginons une fonction qui additionne deux nombres :</p>
+      <pre><code>function addition(a, b) {
+  return a + b;
+}
+
+console.log(addition(5, 3)); // Affiche 8</code></pre>
+      <p>Ici, <code>a</code> et <code>b</code> sont les paramètres de la fonction, et la fonction retourne la somme de
+        ces deux nombres.</p>
+    </div>
+
+    <div class="my-4">
+      <h2>Ajout d'une Boucle et d'une Condition</h2>
+      <p>Maintenant, ajoutons une boucle et une condition à notre fonction pour la rendre un peu plus complexe.</p>
+
+      <h3>Exemple : Compter le Nombre de Nombres Pairs</h3>
+      <p>Supposons que vous voulez créer une fonction qui compte combien de nombres pairs existent dans un tableau donné
+        :</p>
+      <pre><code>function compterNombresPairs(tableau) {
+  let compteur = 0; // Initialise un compteur à 0
+  
+  for (let i = 0; i < tableau.length; i++) { // Boucle à travers chaque élément du tableau
+    if (tableau[i] % 2 === 0) { // Vérifie si l'élément est pair
+      compteur++; // Incrémente le compteur si l'élément est pair
+    }
+  }
+  
+  return compteur; // Retourne le nombre de nombres pairs trouvés
+}
+
+let monTableau = [1, 2, 3, 4, 5, 6];
+console.log(compterNombresPairs(monTableau)); // Affiche 3</code></pre>
+
+      <h4>Explication Étape par Étape</h4>
+      <ol>
+        <li><strong>Déclaration de la fonction :</strong> <code>function compterNombresPairs(tableau)</code> – Nous
+          déclarons une fonction qui prend un tableau comme paramètre.</li>
+        <li><strong>Initialisation d'une variable :</strong> <code>let compteur = 0</code> – Nous créons une variable
+          <code>compteur</code> qui commence à 0. Elle comptera combien de nombres pairs nous avons trouvés.
+        </li>
+        <li><strong>Boucle <code>for</code> :</strong> <code>for (let i = 0; i < tableau.length; i++)</code> – Nous
+          utilisons une boucle <code>for</code> pour passer en revue chaque élément du tableau.
+          <ul>
+            <li><code>i = 0</code> : La boucle commence à l'indice 0 (le premier élément du tableau).</li>
+            <li><code>i &lt; tableau.length</code> : La boucle continue tant que <code>i</code> est inférieur à la
+              longueur du tableau.</li>
+            <li><code>i++</code> : À chaque itération, <code>i</code> est incrémenté de 1 pour passer à l'élément
+              suivant.</li>
+          </ul>
+        </li>
+        <li><strong>Condition <code>if</code> :</strong> <code>if (tableau[i] % 2 === 0)</code> – À chaque itération,
+          nous vérifions si l'élément courant est pair (<code>% 2 === 0</code>).
+          <ul>
+            <li><code>%</code> est l'opérateur modulo qui donne le reste d'une division. Si <code>tableau[i] % 2</code>
+              est égal à 0, alors <code>tableau[i]</code> est pair.</li>
+          </ul>
+        </li>
+        <li><strong>Incrémentation du compteur :</strong> <code>compteur++</code> – Si l'élément est pair, nous
+          augmentons le compteur de 1.</li>
+        <li><strong>Retour du résultat :</strong> <code>return compteur</code> – À la fin de la boucle, nous retournons
+          le nombre total de nombres pairs trouvés dans le tableau.</li>
+      </ol>
+    </div>
+
+    <div class="my-4">
+      <h2>Ajout d'un Booléen dans la Fonction</h2>
+      <p>Un booléen est une valeur qui peut être soit <code>true</code> soit <code>false</code>. Nous allons maintenant
+        ajouter un paramètre booléen à notre fonction pour déterminer si nous voulons compter les nombres pairs ou
+        impairs.</p>
+
+      <h3>Exemple : Compter Nombres Pairs ou Impairs</h3>
+      <pre><code>function compterNombres(tableau, estPair) {
+  let compteur = 0;
+  
+  for (let i = 0; i < tableau.length; i++) {
+    if (estPair) {
+      if (tableau[i] % 2 === 0) { // Si estPair est vrai, on compte les pairs
+        compteur++;
+      }
+    } else {
+      if (tableau[i] % 2 !== 0) { // Si estPair est faux, on compte les impairs
+        compteur++;
+      }
+    }
+  }
+  
+  return compteur;
+}
+
+let monTableau = [1, 2, 3, 4, 5, 6];
+console.log(compterNombres(monTableau, true));  // Affiche 3 (nombres pairs)
+console.log(compterNombres(monTableau, false)); // Affiche 3 (nombres impairs)</code></pre>
+
+      <h4>Explication</h4>
+      <p><strong>estPair</strong> : Un booléen qui détermine si nous devons compter les nombres pairs
+        (<code>true</code>) ou impairs (<code>false</code>).</p>
+      <p>La fonction vérifie la valeur de <code>estPair</code> dans chaque itération :</p>
+      <ul>
+        <li>Si <code>estPair</code> est <code>true</code>, elle compte les nombres pairs.</li>
+        <li>Si <code>estPair</code> est <code>false</code>, elle compte les nombres impairs.</li>
+      </ul>
+    </div>
+
+    <div class="my-4">
+      <h2>Conclusion</h2>
+      <p>En combinant ces concepts – la création d'une fonction, l'utilisation d'une boucle, l'ajout de conditions, et
+        l'inclusion de booléens – vous pouvez créer des fonctions plus complexes et puissantes. Cela peut sembler
+        difficile au début, surtout lorsqu'il y a plusieurs étapes à suivre, mais en découpant chaque partie et en la
+        comprenant séparément, cela devient beaucoup plus gérable.</p>
+      <p>N'hésitez pas à pratiquer avec des exemples simples pour solidifier votre compréhension, puis augmentez
+        progressivement la complexité des fonctions que vous écrivez.</p>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
