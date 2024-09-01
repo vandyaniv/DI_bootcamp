@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cours Complet sur la Méthode MIA-GCU</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">MIA-GCU</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="#introduction">Introduction</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#module">Module (M)</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#item">Item (I)</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#attribute">Attribute (A)</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#example">Exemple Complet</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#summary">Résumé</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container mt-4">
+    <section id="introduction">
+      <h2>Cours Complet sur la Méthode MIA-GCU pour JavaScript</h2>
+      <p>
+        Bienvenue dans ce cours sur la méthode MIA-GCU pour structurer votre code JavaScript. Cette méthode est
+        conçue pour être simple, visuelle, et surtout, adaptée aux personnes avec TDAH. Nous allons explorer
+        comment organiser votre code de manière claire, logique, et facile à comprendre, même dans des projets
+        complexes.
+      </p>
+      <h4>Qu'est-ce que MIA-GCU ?</h4>
+      <p>
+        <strong>MIA-GCU</strong> est une méthode de classification et de nommage des éléments de code JavaScript.
+        Elle repose sur trois concepts principaux : <strong>Modules (M)</strong>, <strong>Items (I)</strong>, et
+        <strong>Attributes (A)</strong>, et elle les structure en utilisant des catégories <strong>Global (G)</strong>,
+        <strong>Core (C)</strong>, et <strong>Utility (U)</strong>.
+      </p>
+    </section>
+
+    <section id="module">
+      <h2>1. Module (M) : Organiser votre Code en Sections Logiques</h2>
+      <p>
+        <strong>Module</strong> est une grande section de votre code qui regroupe des fonctionnalités connexes.
+        Pensez à un module comme un chapitre dans un livre. Il contient plusieurs sous-sections qui traitent d'un
+        sujet spécifique.
+      </p>
+      <ul>
+        <li><strong>Global Module (G):</strong> Le chapitre principal du livre. Il englobe une grande partie
+          fonctionnelle de votre application.
+          <ul>
+            <li><strong>Exemple :</strong> <code>UserManagement</code> pour tout ce qui concerne la gestion
+              des utilisateurs.</li>
+          </ul>
+        </li>
+        <li><strong>Core Module (C):</strong> Les sous-sections importantes du chapitre. Chaque Core Module
+          gère une fonctionnalité principale.
+          <ul>
+            <li><strong>Exemple :</strong> <code>UserManagement.Auth</code> pour les opérations de
+              connexion/déconnexion.</li>
+          </ul>
+        </li>
+        <li><strong>Utility Module (U):</strong> Les petites notes ou outils que vous utilisez partout dans le
+          chapitre. Ces modules contiennent des fonctions utilitaires.
+          <ul>
+            <li><strong>Exemple :</strong> <code>UserManagement.Helpers</code> pour les fonctions comme la
+              validation des données.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h4>Exemple Visuel :</h4>
+      <pre><code>
+UserManagement (G)
+│
+├── Auth (C)
+│   ├── login()
+│   ├── logout()
+│
+└── Helpers (U)
+    ├── validateInput()
+    ├── formatUserData()
+            </code></pre>
+    </section>
+
+    <section id="item">
+      <h2>2. Item (I) : Les Actions et Aides</h2>
+      <p>
+        Les <strong>Items</strong> sont les actions et fonctions spécifiques dans vos modules. Nous les divisons
+        en deux catégories :
+      </p>
+      <ul>
+        <li><strong>Actions :</strong> Ce sont les tâches principales que votre code doit accomplir. Imaginez que
+          ce sont les paragraphes clés de votre chapitre.
+          <ul>
+            <li><strong>Exemple :</strong> <code>doLogin()</code> pour gérer la connexion de l'utilisateur.</li>
+          </ul>
+        </li>
+        <li><strong>Helpers :</strong> Ce sont des fonctions secondaires qui aident les actions. Ce sont les
+          outils que vous utilisez pour accomplir les tâches principales.
+          <ul>
+            <li><strong>Exemple :</strong> <code>utilValidateInput()</code> pour vérifier que les données
+              saisies sont correctes.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h4>Astuce :</h4>
+      <p>Utilisez des préfixes pour distinguer clairement Actions et Helpers. Cela aide à comprendre rapidement ce que
+        fait chaque fonction.</p>
+
+      <h4>Exemple :</h4>
+      <pre><code>
+function doLogin(username, password) { 
+    // Action principale
+}
+
+function utilValidateInput(input) { 
+    // Fonction utilitaire
+}
+            </code></pre>
+    </section>
+
+    <section id="attribute">
+      <h2>3. Attribute (A) : Gérer les Données et Configurations</h2>
+      <p>
+        Les <strong>Attributes</strong> sont les variables et constantes qui contrôlent les comportements de vos
+        modules et items. Ils sont classés en trois catégories :
+      </p>
+      <ul>
+        <li><strong>State (S):</strong> Ce sont les variables qui changent au cours de l'exécution. Pensez à
+          l'état d'une scène dans une histoire.
+          <ul>
+            <li><strong>Exemple :</strong> <code>stateIsLoggedIn</code> pour indiquer si l'utilisateur est
+              connecté.</li>
+          </ul>
+        </li>
+        <li><strong>Config (C):</strong> Ce sont les paramètres qui définissent comment vos fonctions et
+          modules se comportent. Ce sont les règles du jeu.
+          <ul>
+            <li><strong>Exemple :</strong> <code>configMaxLoginAttempts</code> pour limiter le nombre de
+              tentatives de connexion.</li>
+          </ul>
+        </li>
+        <li><strong>Constants (CONST):</strong> Ce sont des valeurs fixes utilisées partout. Ce sont les faits
+          établis qui ne changent pas.
+          <ul>
+            <li><strong>Exemple :</strong> <code>CONST_API_URL</code> pour l'URL de votre API.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h4>Astuce :</h4>
+      <p>Utilisez des préfixes pour que ces attributs soient faciles à identifier dans votre code.</p>
+
+      <h4>Exemple :</h4>
+      <pre><code>
+const CONST_API_URL = 'https://api.example.com';
+let stateIsLoggedIn = false;
+let configMaxLoginAttempts = 5;
+            </code></pre>
+    </section>
+
+    <section id="example">
+      <h2>Exemple Complet avec MIA-GCU</h2>
+      <p>
+        Imaginons un module de gestion des utilisateurs où nous devons gérer la connexion des utilisateurs.
+        Voici comment on utiliserait MIA-GCU :
+      </p>
+      <pre><code>
+// 🏗️ Global Module: UserManagement
+
+// ⚙️ Core Module: Auth
+const UserManagerAuth = (function() {
+    // State (S)
+    let stateIsLoggedIn = false;
+
+    // Action (I)
+    function doLogin(username, password) {
+        if (utilValidateInput(username, password)) {
+            console.log(`Logging in...`);
+            stateIsLoggedIn = true;
+        }
+    }
+
+    // Action (I)
+    function doLogout() {
+        console.log('Logging out...');
+        stateIsLoggedIn = false;
+    }
+
+        // Expose public methods
+        return {
+        doLogin,
+        doLogout
+        };
+        })();
+        
+        // 🛠️ Utility Module: Helpers
+        function utilValidateInput(input) {
+        // Validation logic
+        return input && input.length > 0;
+        }
+        
+        // Utilisation
+        UserManagerAuth.doLogin('Alice', 'password123');
+        </code></pre>
+    </section>
+
+    <section id="summary">
+      <h2>Résumé et Conseils pour TDAH</h2>
+      <p>
+        La méthode <strong>MIA-GCU</strong> est conçue pour vous aider à organiser votre code JavaScript de manière
+        logique et intuitive. Voici quelques conseils supplémentaires pour faciliter votre apprentissage :
+      </p>
+      <ul>
+        <li><strong>Clarté Visuelle :</strong> Utilisez des préfixes et des noms clairs pour chaque module, item, et
+          attribute. Cela rend le code plus lisible et plus facile à naviguer.</li>
+        <li><strong>Modularité :</strong> Divisez votre code en petits modules et sous-modules. Cela vous aide à vous
+          concentrer sur une tâche à la fois.</li>
+        <li><strong>Hiérarchie :</strong> Suivez la structure Global, Core, Utility pour garder une vue d'ensemble
+          claire
+          et bien organisée de votre projet.</li>
+        <li><strong>Commentaires et Icônes :</strong> Ajoutez des commentaires et utilisez des icônes pour rendre chaque
+          partie du code immédiatement identifiable.</li>
+      </ul>
+      <p>
+        Avec cette méthode, vous serez en mesure de gérer des projets complexes tout en gardant votre code propre,
+        lisible, et facile à maintenir.
+      </p>
+    </section>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

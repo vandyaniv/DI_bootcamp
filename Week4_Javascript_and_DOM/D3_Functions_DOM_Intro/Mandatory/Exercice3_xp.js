@@ -58,5 +58,4 @@ Ul_adding.appendChild(into_ul);
 console.log(Ul_adding);
 
 // Exercise 7 : My Book List
-e
-
+e;

@@ -1,0 +1,44 @@
+html,
+body {
+  margin: 1;
+  background-color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+h1 {
+  color: red;
+}
+
+#add_btn {
+  cursor: pointer;
+  color: blue;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  font-size: large;
+}
+
+#taks {
+  height: 30px;
+}
+
+.container {
+  margin-top: 5%;
+  height: 800px;
+  width: 700px;
+  border: 2px solid black;
+  border-radius: 1em;
+  background-color: aliceblue;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.new-task-container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
