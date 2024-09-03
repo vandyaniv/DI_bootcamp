@@ -35,8 +35,72 @@ const inventory = [
 
 // console.log(sortCarInventoryByYear(inventory));
 
-function sortCarInventoryByYear(carInventory) {
-  car_inventory.sort(a, b) => {
+// function sortCarInventoryByYear(carInventory) {
+//   car_inventory.sort(a, b) {
 
-  }
-}
+//   }
+// }
+
+
+////////////////////🌟 📌  Daily challenge : Go Wildcats 🌟 📌 //////////////
+
+const gameInfo = [
+  {
+    username: "john",
+    team: "red",
+    score: 5,
+    items: ["ball", "book", "pen"]
+  },
+  {
+    username: "becky",
+    team: "blue",
+    score: 10,
+    items: ["tape", "backpack", "pen"]
+  },
+  {
+    username: "susy",
+    team: "red",
+    score: 55,
+    items: ["ball", "eraser", "pen"]
+  },
+  {
+    username: "tyson",
+    team: "green",
+    score: 1,
+    items: ["book", "pen"]
+  },
+ ];
+
+//  Part I 🌟
+
+// let usernames = [];
+
+//  gameInfo.forEach(element => {
+//   usernames.push(element.username + ' ' + '!');
+
+  
+//  });
+
+//  console.log(usernames);
+
+//   🌟Part II
+
+// const winner = [];
+
+// gameInfo.forEach(element => {
+//   if (element.score > 5);
+//   winner.push(element.username);
+
+  
+// });
+
+// console.log(winner);
+
+// //   🌟Part I I I
+
+// const sum_score = gameInfo.reduce((acc, val) => {
+//   return acc + val.score;
+// })
+
+// console.log(sum_score)
+
