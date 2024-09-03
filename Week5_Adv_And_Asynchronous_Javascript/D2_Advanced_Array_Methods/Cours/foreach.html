@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercices JavaScript - forEach()</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <i class="fas fa-code"></i> Advanced JS
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <!-- Links to Different Pages -->
+          <li class="nav-item">
+            <a class="nav-link" href="introduction.html">
+              <i class="fas fa-book-open"></i> Introduction
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="foreach.html">
+              <i class="fas fa-list"></i> forEach
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="some.html">
+              <i class="fas fa-check-circle"></i> some
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="every.html">
+              <i class="fas fa-check-double"></i> every
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Array_methods.html">
+              <i class="fas fa-code-branch"></i> Array Methods Overview
+            </a>
+          </li>
+          <!-- Internal Page Navigation -->
+          <li class="nav-item">
+            <a class="nav-link" href="#map">
+              <i class="fas fa-exchange-alt"></i> Array map
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#filter">
+              <i class="fas fa-filter"></i> Array filter
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#reduce">
+              <i class="fas fa-compress"></i> Array reduce
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#destructuring">
+              <i class="fas fa-box-open"></i> Destructuring
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#spread">
+              <i class="fas fa-expand"></i> Spread Operator
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#rest">
+              <i class="fas fa-hand-holding"></i> Rest Operator
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#cloning">
+              <i class="fas fa-clone"></i> Cloning Arrays
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container my-5">
+    <h1 class="mb-4">Exercices pour comprendre la méthode <code>forEach()</code> en JavaScript</h1>
+    <p>Voici une série d'exercices qui montent en difficulté pour t'aider à comprendre et maîtriser la méthode
+      <code>forEach()</code>. Chaque exercice est conçu pour te faire appliquer <code>forEach()</code> dans des
+      situations de plus en plus complexes.
+    </p>
+
+    <hr>
+
+    <h2>Exercice 1 : Afficher chaque élément du tableau</h2>
+    <p><strong>Objectif :</strong> Utiliser <code>forEach()</code> pour afficher chaque élément d'un tableau dans la
+      console.</p>
+    <p><strong>Instructions :</strong> Crée un tableau <code>fruits</code> avec les éléments suivants :
+      <code>"pomme"</code>, <code>"banane"</code>, <code>"orange"</code>. Utilise <code>forEach()</code> pour afficher
+      chaque fruit dans la console.
+    </p>
+
+    <pre><code class="language-javascript">const fruits = ["pomme", "banane", "orange"];
+
+// Utilise forEach pour afficher chaque fruit
+fruits.forEach(function(fruit) {
+  console.log(fruit);
+});</code></pre>
+
+    <hr>
+
+    <h2>Exercice 2 : Afficher les éléments avec leur index</h2>
+    <p><strong>Objectif :</strong> Utiliser <code>forEach()</code> pour afficher chaque élément d'un tableau avec son
+      index.</p>
+    <p><strong>Instructions :</strong> Utilise le même tableau <code>fruits</code> et modifie ton code pour afficher
+      chaque fruit avec son index, par exemple : <code>0: pomme</code>, <code>1: banane</code>, etc.</p>
+
+    <pre><code class="language-javascript">const fruits = ["pomme", "banane", "orange"];
+
+// Utilise forEach pour afficher chaque fruit avec son index
+fruits.forEach(function(fruit, index) {
+  console.log(`${index}: ${fruit}`);
+});</code></pre>
+
+    <hr>
+
+    <h2>Exercice 3 : Additionner les éléments d'un tableau de nombres</h2>
+    <p><strong>Objectif :</strong> Utiliser <code>forEach()</code> pour calculer la somme des éléments d'un tableau de
+      nombres.</p>
+    <p><strong>Instructions :</strong> Crée un tableau <code>nombres</code> avec les éléments suivants : <code>5</code>,
+      <code>10</code>, <code>15</code>, <code>20</code>. Utilise <code>forEach()</code> pour calculer et afficher la
+      somme de ces nombres.
+    </p>
+
+    <pre><code class="language-javascript">const nombres = [5, 10, 15, 20];
+let somme = 0;
+
+// Utilise forEach pour additionner les nombres
+nombres.forEach(function(nombre) {
+  somme += nombre;
+});
+
+console.log("Somme totale : ", somme);</code></pre>
+
+    <hr>
+
+    <h2>Exercice 4 : Modifier les éléments d'un tableau</h2>
+    <p><strong>Objectif :</strong> Utiliser <code>forEach()</code> pour modifier les éléments d'un tableau.</p>
+    <p><strong>Instructions :</strong> Crée un tableau <code>prix</code> avec les éléments suivants : <code>100</code>,
+      <code>200</code>, <code>300</code>. Utilise <code>forEach()</code> pour appliquer une réduction de 10% sur chaque
+      prix et affiche les nouveaux prix.
+    </p>
+
+    <pre><code class="language-javascript">const prix = [100, 200, 300];
+
+// Utilise forEach pour réduire chaque prix de 10%
+prix.forEach(function(p, index, array) {
+  array[index] = p * 0.9;
+});
+
+console.log("Nouveaux prix : ", prix);</code></pre>
+
+    <hr>
+
+    <h2>Exercice 5 : Filtrer les éléments d'un tableau (sans utiliser <code>filter()</code>)</h2>
+    <p><strong>Objectif :</strong> Utiliser <code>forEach()</code> pour créer un nouveau tableau contenant uniquement
+      les éléments qui répondent à une certaine condition.</p>
+    <p><strong>Instructions :</strong> Crée un tableau <code>âges</code> avec les éléments suivants : <code>15</code>,
+      <code>18</code>, <code>21</code>, <code>17</code>, <code>30</code>. Utilise <code>forEach()</code> pour créer un
+      nouveau tableau <code>âges_adultes</code> contenant uniquement les âges supérieurs ou égaux à 18 ans.
+    </p>
+
+    <pre><code class="language-javascript">const âges = [15, 18, 21, 17, 30];
+const âges_adultes = [];
+
+// Utilise forEach pour filtrer les âges
+âges.forEach(function(âge) {
+  if (âge >= 18) {
+    âges_adultes.push(âge);
+  }
+});
+
+console.log("Âges adultes : ", âges_adultes);</code></pre>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

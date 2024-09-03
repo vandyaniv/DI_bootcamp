@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercices JavaScript - some()</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <i class="fas fa-code"></i> Advanced JS
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <!-- Links to Different Pages -->
+          <li class="nav-item">
+            <a class="nav-link" href="introduction.html">
+              <i class="fas fa-book-open"></i> Introduction
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="foreach.html">
+              <i class="fas fa-list"></i> forEach
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="some.html">
+              <i class="fas fa-check-circle"></i> some
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="every.html">
+              <i class="fas fa-check-double"></i> every
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Array_methods.html">
+              <i class="fas fa-code-branch"></i> Array Methods Overview
+            </a>
+          </li>
+          <!-- Internal Page Navigation -->
+          <li class="nav-item">
+            <a class="nav-link" href="#map">
+              <i class="fas fa-exchange-alt"></i> Array map
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#filter">
+              <i class="fas fa-filter"></i> Array filter
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#reduce">
+              <i class="fas fa-compress"></i> Array reduce
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#destructuring">
+              <i class="fas fa-box-open"></i> Destructuring
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#spread">
+              <i class="fas fa-expand"></i> Spread Operator
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#rest">
+              <i class="fas fa-hand-holding"></i> Rest Operator
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#cloning">
+              <i class="fas fa-clone"></i> Cloning Arrays
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container my-5">
+    <h1 class="mb-4">Exercices pour comprendre la méthode <code>some()</code> en JavaScript</h1>
+    <p>Dans cette leçon, tu vas apprendre à utiliser la méthode <code>some()</code> pour évaluer les éléments d'un
+      tableau selon une condition spécifique. Cette méthode est utile pour vérifier si au moins un élément d'un tableau
+      répond à un critère donné. Nous allons explorer cette méthode à travers une série d'exercices progressifs.</p>
+
+    <hr>
+
+    <h2>Exercice 1 : Vérifier la présence d'un nombre pair</h2>
+    <p><strong>Objectif :</strong> Utiliser <code>some()</code> pour vérifier si au moins un élément d'un tableau est un
+      nombre pair.</p>
+    <p><strong>Explication :</strong> La méthode <code>some()</code> prend une fonction de callback qui est exécutée sur
+      chaque élément du tableau. Si cette fonction renvoie <code>true</code> pour au moins un élément, alors
+      <code>some()</code> renvoie <code>true</code>, sinon elle renvoie <code>false</code>.
+    </p>
+    <p><strong>Instructions :</strong> Crée un tableau <code>nombres</code> avec les éléments suivants : <code>1</code>,
+      <code>3</code>, <code>5</code>, <code>7</code>, <code>8</code>. Utilise <code>some()</code> pour vérifier s'il y a
+      au moins un nombre pair dans le tableau et affiche le résultat (<code>true</code> ou <code>false</code>).
+    </p>
+
+    <pre><code class="language-javascript">const nombres = [1, 3, 5, 7, 8];
+
+// Utilise some pour vérifier la présence d'un nombre pair
+const hasEvenNumber = nombres.some(function(nombre) {
+  return nombre % 2 === 0;
+});
+
+console.log("Y a-t-il un nombre pair ? ", hasEvenNumber);</code></pre>
+
+    <hr>
+
+    <h2>Exercice 2 : Vérifier si un élément dépasse une certaine valeur</h2>
+    <p><strong>Objectif :</strong> Utiliser <code>some()</code> pour vérifier si au moins un élément du tableau dépasse
+      une valeur donnée.</p>
+    <p><strong>Explication :</strong> Cet exercice t'aide à comprendre comment utiliser <code>some()</code> pour
+      vérifier des conditions numériques. Ici, tu vérifieras si au moins un score dans un tableau dépasse une valeur
+      spécifique.</p>
+    <p><strong>Instructions :</strong> Crée un tableau <code>scores</code> avec les éléments suivants : <code>50</code>,
+      <code>60</code>, <code>70</code>, <code>80</code>. Utilise <code>some()</code> pour vérifier s'il y a au moins un
+      score supérieur à <code>75</code> et affiche le résultat (<code>true</code> ou <code>false</code>).
+    </p>
+
+    <pre><code class="language-javascript">const scores = [50, 60, 70, 80];
+
+// Utilise some pour vérifier si un score dépasse 75
+const hasHighScore = scores.some(function(score) {
+  return score > 75;
+});
+
+console.log("Y a-t-il un score supérieur à 75 ? ", hasHighScore);</code></pre>
+
+    <hr>
+
+    <h2>Exercice 3 : Vérifier la présence d'un mot spécifique dans un tableau</h2>
+    <p><strong>Objectif :</strong> Utiliser <code>some()</code> pour vérifier si un tableau de chaînes de caractères
+      contient un mot spécifique.</p>
+    <p><strong>Explication :</strong> Cet exercice montre comment <code>some()</code> peut être utilisé avec des chaînes
+      de caractères pour vérifier la présence d'un élément particulier dans un tableau.</p>
+    <p><strong>Instructions :</strong> Crée un tableau <code>mots</code> avec les éléments suivants :
+      <code>"chat"</code>, <code>"chien"</code>, <code>"poisson"</code>, <code>"oiseau"</code>. Utilise
+      <code>some()</code> pour vérifier si le mot <code>"poisson"</code> est présent dans le tableau et affiche le
+      résultat (<code>true</code> ou <code>false</code>).
+    </p>
+
+    <pre><code class="language-javascript">const mots = ["chat", "chien", "poisson", "oiseau"];
+
+// Utilise some pour vérifier si "poisson" est dans le tableau
+const hasPoisson = mots.some(function(mot) {
+  return mot === "poisson";
+});
+
+console.log("Le mot 'poisson' est-il présent ? ", hasPoisson);</code></pre>
+
+    <hr>
+
+    <h2>Exercice 4 : Vérifier si au moins une personne est majeure</h2>
+    <p><strong>Objectif :</strong> Utiliser <code>some()</code> pour vérifier si au moins une personne d'un tableau est
+      âgée de 18 ans ou plus.</p>
+    <p><strong>Explication :</strong> Cet exercice démontre l'utilisation de <code>some()</code> dans le contexte de
+      vérifications d'âge, ce qui est fréquent dans des applications de gestion de données personnelles.</p>
+    <p><strong>Instructions :</strong> Crée un tableau <code>âges</code> avec les éléments suivants : <code>14</code>,
+      <code>16</code>, <code>17</code>, <code>19</code>. Utilise <code>some()</code> pour vérifier s'il y a au moins une
+      personne majeure dans le tableau et affiche le résultat (<code>true</code> ou <code>false</code>).
+    </p>
+
+    <pre><code class="language-javascript">const âges = [14, 16, 17, 19];
+
+// Utilise some pour vérifier si au moins une personne est majeure
+const hasAdult = âges.some(function(âge) {
+  return âge >= 18;
+});
+
+console.log("Y a-t-il au moins une personne majeure ? ", hasAdult);</code></pre>
+
+    <hr>
+
+    <h2>Exercice 5 : Vérifier si au moins un produit est en stock</h2>
+    <p><strong>Objectif :</strong> Utiliser <code>some()</code> pour vérifier si un tableau d'objets contient au moins
+      un produit en stock.</p>
+    <p><strong>Explication :</strong> Dans cet exercice, tu vas voir comment utiliser <code>some()</code> avec des
+      objets pour vérifier une propriété spécifique, en l'occurrence si un produit est en stock.</p>
+    <p><strong>Instructions :</strong> Crée un tableau <code>produits</code> avec des objets contenant deux propriétés :
+      <code>nom</code> (chaîne de caractères) et <code>enStock</code> (booléen). Par exemple :
+    </p>
+
+    <pre><code class="language-javascript">const produits = [
+  { nom: "Ordinateur", enStock: false },
+  { nom: "Téléphone", enStock: false },
+  { nom: "Tablette", enStock: true }
+];
+
+// Utilise some pour vérifier si au moins un produit est en stock
+const hasProductInStock = produits.some(function(produit) {
+  return produit.enStock === true;
+});
+
+console.log("Y a-t-il au moins un produit en stock ? ", hasProductInStock);</code></pre>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

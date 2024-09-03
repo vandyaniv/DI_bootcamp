@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Concepts Avancés JavaScript</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <i class="fas fa-code"></i> Advanced JS
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <!-- Links to Different Pages -->
+          <li class="nav-item">
+            <a class="nav-link" href="introduction.html">
+              <i class="fas fa-book-open"></i> Introduction
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="foreach.html">
+              <i class="fas fa-list"></i> forEach
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="some.html">
+              <i class="fas fa-check-circle"></i> some
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="every.html">
+              <i class="fas fa-check-double"></i> every
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Array_methods.html">
+              <i class="fas fa-code-branch"></i> Array Methods Overview
+            </a>
+          </li>
+          <!-- Internal Page Navigation -->
+          <li class="nav-item">
+            <a class="nav-link" href="#map">
+              <i class="fas fa-exchange-alt"></i> Array map
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#filter">
+              <i class="fas fa-filter"></i> Array filter
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#reduce">
+              <i class="fas fa-compress"></i> Array reduce
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#destructuring">
+              <i class="fas fa-box-open"></i> Destructuring
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#spread">
+              <i class="fas fa-expand"></i> Spread Operator
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#rest">
+              <i class="fas fa-hand-holding"></i> Rest Operator
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#cloning">
+              <i class="fas fa-clone"></i> Cloning Arrays
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container my-5">
+    <h1 class="mb-4">Concepts Avancés JavaScript</h1>
+    <p>Je vais te guider étape par étape à travers les concepts que tu as mentionnés, en gardant les explications
+      claires, simples, et en les liant à des concepts que tu connais déjà. Je vais aussi rendre l'apprentissage
+      interactif en te posant des questions pour que tu participes activement.</p>
+
+    <div class="accordion" id="accordionExample">
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingMap">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMap"
+            aria-expanded="true" aria-controls="collapseMap">
+            <i class="fas fa-exchange-alt"></i> Array map : Transformer un tableau
+          </button>
+        </h2>
+        <div id="collapseMap" class="accordion-collapse collapse show" aria-labelledby="headingMap"
+          data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <strong>Concept :</strong><br>
+            <code>map()</code> crée un nouveau tableau en appliquant une fonction à chaque élément du tableau d'origine.
+            <br><br>
+            <strong>Exemple :</strong><br>
+            Tu as un tableau de nombres et tu veux les multiplier par 2.
+            <pre><code class="language-javascript">const numbers = [1, 4, 9, 16];
+const doubled = numbers.map(value => value * 2);
+console.log(doubled); // [2, 8, 18, 32]</code></pre>
+            <strong>Explication :</strong><br>
+            <ul>
+              <li><strong>Ancien tableau :</strong> [1, 4, 9, 16]</li>
+              <li><strong>Nouvelle valeur :</strong> Chaque élément est multiplié par 2.</li>
+              <li><strong>Nouveau tableau :</strong> [2, 8, 18, 32]</li>
+            </ul>
+            <strong>Question :</strong><br>
+            Imagine que tu as un tableau <code>[10, 20, 30]</code> et que tu veux ajouter 5 à chaque élément. Que
+            retournerait <code>map()</code> ?
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingFilter">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseFilter" aria-expanded="false" aria-controls="collapseFilter">
+            <i class="fas fa-filter"></i> Array filter : Filtrer un tableau
+          </button>
+        </h2>
+        <div id="collapseFilter" class="accordion-collapse collapse" aria-labelledby="headingFilter"
+          data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <strong>Concept :</strong><br>
+            <code>filter()</code> crée un nouveau tableau avec uniquement les éléments qui passent un test.
+            <br><br>
+            <strong>Exemple :</strong><br>
+            Tu as un tableau de mots et tu veux seulement ceux qui ont plus de 6 lettres.
+            <pre><code class="language-javascript">const words = ['spray', 'limit', 'elite', 'exuberant'];
+const longWords = words.filter(word => word.length > 6);
+console.log(longWords); // ['exuberant']</code></pre>
+            <strong>Explication :</strong><br>
+            <ul>
+              <li><strong>Ancien tableau :</strong> ['spray', 'limit', 'elite', 'exuberant']</li>
+              <li><strong>Condition :</strong> Longueur supérieure à 6 lettres.</li>
+              <li><strong>Nouveau tableau :</strong> ['exuberant']</li>
+            </ul>
+            <strong>Question :</strong><br>
+            Si tu as un tableau <code>[12, 5, 8, 130, 44]</code> et que tu veux garder les nombres supérieurs à 10,
+            quel serait le résultat ?
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingReduce">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseReduce" aria-expanded="false" aria-controls="collapseReduce">
+            <i class="fas fa-compress"></i> Array reduce : Réduire un tableau à une seule valeur
+          </button>
+        </h2>
+        <div id="collapseReduce" class="accordion-collapse collapse" aria-labelledby="headingReduce"
+          data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <strong>Concept :</strong><br>
+            <code>reduce()</code> combine tous les éléments d'un tableau en une seule valeur.
+            <br><br>
+            <strong>Exemple :</strong><br>
+            Tu as un tableau de nombres et tu veux calculer la somme.
+            <pre><code class="language-javascript">const array1 = [1, 2, 3, 4];
+const sum = array1.reduce((acc, val) => acc + val, 0);
+console.log(sum); // 10</code></pre>
+            <strong>Explication :</strong><br>
+            <ul>
+              <li><strong>Ancien tableau :</strong> [1, 2, 3, 4]</li>
+              <li><strong>Accumulation :</strong> On additionne chaque valeur à l'accumulateur.</li>
+              <li><strong>Résultat :</strong> 10</li>
+            </ul>
+            <strong>Question :</strong><br>
+            Si tu veux multiplier tous les éléments d'un tableau <code>[2, 3, 4]</code>, quel serait le résultat de
+            <code>reduce()</code> ?
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingDestructuring">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseDestructuring" aria-expanded="false" aria-controls="collapseDestructuring">
+            <i class="fas fa-box-open"></i> Destructuring assignment : Extraction des valeurs
+          </button>
+        </h2>
+        <div id="collapseDestructuring" class="accordion-collapse collapse"
+          aria-labelledby="headingDestructuring          data-bs-parent=" #accordionExample">
+          <div class="accordion-body">
+            <strong>Concept :</strong><br>
+            La déstructuration permet d'extraire des valeurs d'un tableau ou d'un objet dans des variables distinctes.
+            <br><br>
+            <strong>Exemple :</strong><br>
+            Tu veux extraire les premiers éléments d'un tableau.
+            <pre><code class="language-javascript">const [a, b] = [10, 20];
+console.log(a); // 10
+console.log(b); // 20</code></pre>
+            <strong>Explication :</strong><br>
+            <ul>
+              <li><strong>Ancien tableau :</strong> [10, 20]</li>
+              <li><strong>Variables :</strong> a reçoit 10, b reçoit 20.</li>
+            </ul>
+            <strong>Question :</strong><br>
+            Que se passe-t-il si tu déstructures <code>[30, 40, 50]</code> en <code>[x, y, ...rest]</code> ?
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingSpread">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseSpread" aria-expanded="false" aria-controls="collapseSpread">
+            <i class="fas fa-expand"></i> Spread Operator : Éclater un tableau ou un objet
+          </button>
+        </h2>
+        <div id="collapseSpread" class="accordion-collapse collapse" aria-labelledby="headingSpread"
+          data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <strong>Concept :</strong><br>
+            L'opérateur <code>spread</code> (<code>...</code>) permet d'étaler les éléments d'un tableau ou d'un objet.
+            <br><br>
+            <strong>Exemple :</strong><br>
+            Tu veux combiner plusieurs tableaux.
+            <pre><code class="language-javascript">const iterable = [10, 20, ...[30, 40, 50]];
+console.log(iterable); // [10, 20, 30, 40, 50]</code></pre>
+            <strong>Explication :</strong><br>
+            <ul>
+              <li><strong>Ancien tableau :</strong> [30, 40, 50] est éclaté.</li>
+              <li><strong>Nouveau tableau :</strong> [10, 20, 30, 40, 50]</li>
+            </ul>
+            <strong>Question :</strong><br>
+            Si tu combines <code>[1, 2]</code> avec <code>...[3, 4]</code>, quel sera le résultat ?
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingRest">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseRest" aria-expanded="false" aria-controls="collapseRest">
+            <i class="fas fa-hand-holding"></i> Rest Operator : Regrouper les éléments restants
+          </button>
+        </h2>
+        <div id="collapseRest" class="accordion-collapse collapse" aria-labelledby="headingRest"
+          data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <strong>Concept :</strong><br>
+            L'opérateur <code>rest</code> (<code>...</code>) regroupe les éléments restants d'un tableau ou d'un objet.
+            <br><br>
+            <strong>Exemple :</strong><br>
+            Tu veux capturer les éléments restants après les deux premiers.
+            <pre><code class="language-javascript">const [c, d, ...rest] = [10, 20, 30, 40, 50];
+console.log(rest); // [30, 40, 50]</code></pre>
+            <strong>Explication :</strong><br>
+            <ul>
+              <li><strong>Ancien tableau :</strong> [10, 20, 30, 40, 50]</li>
+              <li><strong>Restant :</strong> [30, 40, 50]</li>
+            </ul>
+            <strong>Question :</strong><br>
+            Que se passe-t-il si tu déstructures <code>[1, 2, 3, 4]</code> avec <code>[a, ...rest]</code> ?
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingCloning">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseCloning" aria-expanded="false" aria-controls="collapseCloning">
+            <i class="fas fa-clone"></i> Cloning Arrays : Cloner des tableaux
+          </button>
+        </h2>
+        <div id="collapseCloning" class="accordion-collapse collapse" aria-labelledby="headingCloning"
+          data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <strong>Concept :</strong><br>
+            En JavaScript, les tableaux sont des références. Pour cloner un tableau, tu peux utiliser le
+            <code>spread operator</code>.
+            <br><br>
+            <strong>Exemple :</strong><br>
+            Tu veux faire une copie d'un tableau sans le modifier.
+            <pre><code class="language-javascript">const rainbow = ['red', 'orange', 'yellow'];
+const rainbowClone = [...rainbow];
+console.log(rainbowClone); // ['red', 'orange', 'yellow']</code></pre>
+            <strong>Explication :</strong><br>
+            <ul>
+              <li><strong>Ancien tableau :</strong> ['red', 'orange', 'yellow']</li>
+              <li><strong>Clone :</strong> Nouvelle copie indépendante.</li>
+            </ul>
+            <strong>Question :</strong><br>
+            Que se passe-t-il si tu modifies <code>rainbow</code> après avoir cloné avec <code>...rainbow</code> ?
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

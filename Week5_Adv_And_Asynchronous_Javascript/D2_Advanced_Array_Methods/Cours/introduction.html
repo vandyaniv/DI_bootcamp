@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leçon JavaScript - Méthodes des Tableaux</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <i class="fas fa-code"></i> Advanced JS
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <!-- Links to Different Pages -->
+          <li class="nav-item">
+            <a class="nav-link" href="introduction.html">
+              <i class="fas fa-book-open"></i> Introduction
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="foreach.html">
+              <i class="fas fa-list"></i> forEach
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="some.html">
+              <i class="fas fa-check-circle"></i> some
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="every.html">
+              <i class="fas fa-check-double"></i> every
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Array_methods.html">
+              <i class="fas fa-code-branch"></i> Array Methods Overview
+            </a>
+          </li>
+          <!-- Internal Page Navigation -->
+          <li class="nav-item">
+            <a class="nav-link" href="#map">
+              <i class="fas fa-exchange-alt"></i> Array map
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#filter">
+              <i class="fas fa-filter"></i> Array filter
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#reduce">
+              <i class="fas fa-compress"></i> Array reduce
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#destructuring">
+              <i class="fas fa-box-open"></i> Destructuring
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#spread">
+              <i class="fas fa-expand"></i> Spread Operator
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#rest">
+              <i class="fas fa-hand-holding"></i> Rest Operator
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#cloning">
+              <i class="fas fa-clone"></i> Cloning Arrays
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container my-5">
+    <h1 class="mb-4">Ce que vous allez apprendre</h1>
+    <p>Dans cette leçon, vous allez apprendre trois méthodes clés des tableaux en JavaScript : <code>forEach()</code>,
+      <code>some()</code> et <code>every()</code>. Ces méthodes sont couramment utilisées pour itérer sur les tableaux
+      et effectuer des vérifications ou des actions sur les éléments. Voici un aperçu de chaque méthode :
+    </p>
+
+    <hr>
+
+    <h2>1. <code>forEach()</code></h2>
+    <p><strong>Ce qu'elle fait :</strong> Exécute une fonction fournie une fois pour chaque élément du tableau.</p>
+    <p><strong>Analogie :</strong> Imaginez que vous avez une liste de tâches (votre tableau), et que vous passez en
+      revue chaque tâche pour effectuer une action spécifique (votre fonction).</p>
+    <p><strong>Utilisation :</strong> Utilisez <code>forEach()</code> lorsque vous devez effectuer un effet secondaire
+      ou une action sur chaque élément d'un tableau, comme afficher les éléments dans la console.</p>
+
+    <hr>
+
+    <h2>2. <code>some()</code></h2>
+    <p><strong>Ce qu'elle fait :</strong> Vérifie si au moins un élément du tableau passe un test (fourni par une
+      fonction). Elle renvoie <code>true</code> si au moins un élément réussit le test ; sinon, elle renvoie
+      <code>false</code>.
+    </p>
+    <p><strong>Analogie :</strong> Pensez à <code>some()</code> comme à la question : "Y a-t-il <strong>au moins
+        un</strong> élément dans cette liste qui répond à mes critères ?"</p>
+    <p><strong>Utilisation :</strong> Utilisez <code>some()</code> lorsque vous voulez vérifier si certains éléments
+      d'un tableau répondent à une condition spécifique.</p>
+
+    <hr>
+
+    <h2>3. <code>every()</code></h2>
+    <p><strong>Ce qu'elle fait :</strong> Vérifie si tous les éléments du tableau passent un test (fourni par une
+      fonction). Elle renvoie <code>true</code> si tous les éléments réussissent le test ; sinon, elle renvoie
+      <code>false</code>.
+    </p>
+    <p><strong>Analogie :</strong> Considérez <code>every()</code> comme la question : "Est-ce que <strong>tous</strong>
+      les éléments de cette liste répondent à mes critères ?"</p>
+    <p><strong>Utilisation :</strong> Utilisez <code>every()</code> lorsque vous voulez vous assurer que tous les
+      éléments d'un tableau répondent à une condition spécifique.</p>
+
+    <hr>
+
+    <p>À la fin de cette leçon, vous comprendrez comment utiliser ces méthodes de tableau pour traiter et évaluer
+      efficacement les éléments au sein des tableaux dans votre code JavaScript.</p>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

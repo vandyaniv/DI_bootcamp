@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercices JavaScript - every()</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <i class="fas fa-code"></i> Advanced JS
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <!-- Links to Different Pages -->
+          <li class="nav-item">
+            <a class="nav-link" href="introduction.html">
+              <i class="fas fa-book-open"></i> Introduction
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="foreach.html">
+              <i class="fas fa-list"></i> forEach
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="some.html">
+              <i class="fas fa-check-circle"></i> some
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="every.html">
+              <i class="fas fa-check-double"></i> every
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Array_methods.html">
+              <i class="fas fa-code-branch"></i> Array Methods Overview
+            </a>
+          </li>
+          <!-- Internal Page Navigation -->
+          <li class="nav-item">
+            <a class="nav-link" href="#map">
+              <i class="fas fa-exchange-alt"></i> Array map
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#filter">
+              <i class="fas fa-filter"></i> Array filter
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#reduce">
+              <i class="fas fa-compress"></i> Array reduce
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#destructuring">
+              <i class="fas fa-box-open"></i> Destructuring
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#spread">
+              <i class="fas fa-expand"></i> Spread Operator
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#rest">
+              <i class="fas fa-hand-holding"></i> Rest Operator
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#cloning">
+              <i class="fas fa-clone"></i> Cloning Arrays
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container my-5">
+    <h1 class="mb-4">Exercices pour comprendre la méthode <code>every()</code> en JavaScript</h1>
+    <p>Dans cette leçon, tu vas apprendre à utiliser la méthode <code>every()</code> pour vérifier si tous les éléments
+      d'un tableau répondent à une condition spécifique. Ces exercices te guideront à travers des scénarios où cette
+      méthode est particulièrement utile.</p>
+
+    <hr>
+
+    <h2>Exercice 1 : Vérifier si tous les nombres sont positifs</h2>
+    <p><strong>Objectif :</strong> Utiliser <code>every()</code> pour vérifier si tous les éléments d'un tableau de
+      nombres sont positifs.</p>
+    <p><strong>Explication :</strong> La méthode <code>every()</code> teste si tous les éléments d'un tableau passent un
+      test mis en œuvre par une fonction fournie. Si la fonction renvoie <code>true</code> pour chaque élément,
+      <code>every()</code> renvoie <code>true</code>, sinon <code>false</code>.
+    </p>
+    <p><strong>Instructions :</strong> Crée un tableau <code>nombres</code> avec les éléments suivants : <code>1</code>,
+      <code>3</code>, <code>5</code>, <code>7</code>, <code>8</code>. Utilise <code>every()</code> pour vérifier si tous
+      les nombres sont positifs et affiche le résultat (<code>true</code> ou <code>false</code>).
+    </p>
+
+    <pre><code class="language-javascript">const nombres = [1, 3, 5, 7, 8];
+
+// Utilise every pour vérifier si tous les nombres sont positifs
+const allPositive = nombres.every(function(nombre) {
+  return nombre > 0;
+});
+
+console.log("Tous les nombres sont-ils positifs ? ", allPositive);</code></pre>
+
+    <hr>
+
+    <h2>Exercice 2 : Vérifier si tous les mots ont une certaine longueur</h2>
+    <p><strong>Objectif :</strong> Utiliser <code>every()</code> pour vérifier si tous les mots d'un tableau ont au
+      moins 5 caractères.</p>
+    <p><strong>Explication :</strong> Cet exercice montre comment <code>every()</code> peut être utilisé avec des
+      chaînes de caractères pour vérifier une condition sur la longueur de chaque mot dans un tableau.</p>
+    <p><strong>Instructions :</strong> Crée un tableau <code>mots</code> avec les éléments suivants :
+      <code>"arbre"</code>, <code>"maison"</code>, <code>"ciel"</code>, <code>"soleil"</code>. Utilise
+      <code>every()</code> pour vérifier si tous les mots ont au moins 5 caractères et affiche le résultat
+      (<code>true</code> ou <code>false</code>).
+    </p>
+
+    <pre><code class="language-javascript">const mots = ["arbre", "maison", "ciel", "soleil"];
+
+// Utilise every pour vérifier si tous les mots ont au moins 5 caractères
+const allLongEnough = mots.every(function(mot) {
+  return mot.length >= 5;
+});
+
+console.log("Tous les mots ont-ils au moins 5 caractères ? ", allLongEnough);</code></pre>
+
+    <hr>
+
+    <h2>Exercice 3 : Vérifier si tous les âges sont au-dessus d'une certaine limite</h2>
+    <p><strong>Objectif :</strong> Utiliser <code>every()</code> pour vérifier si tous les âges d'un tableau sont
+      supérieurs ou égaux à 18 ans.</p>
+    <p><strong>Explication :</strong> Cet exercice démontre l'utilisation de <code>every()</code> dans le contexte de
+      vérifications d'âge, un scénario courant pour des conditions d'éligibilité ou d'accès.</p>
+    <p><strong>Instructions :</strong> Crée un tableau <code>âges</code> avec les éléments suivants : <code>18</code>,
+      <code>22</code>, <code>19</code>, <code>30</code>. Utilise <code>every()</code> pour vérifier si tous les âges
+      sont au moins 18 ans et affiche le résultat (<code>true</code> ou <code>false</code>).
+    </p>
+
+    <pre><code class="language-javascript">const âges = [18, 22, 19, 30];
+
+// Utilise every pour vérifier si tous les âges sont supérieurs ou égaux à 18 ans
+const allAdults = âges.every(function(âge) {
+  return âge >= 18;
+});
+
+console.log("Tous les âges sont-ils supérieurs ou égaux à 18 ans ? ", allAdults);</code></pre>
+
+    <hr>
+
+    <h2>Exercice 4 : Vérifier si tous les produits sont en stock</h2>
+    <p><strong>Objectif :</strong> Utiliser <code>every()</code> pour vérifier si tous les produits d'un tableau
+      d'objets sont en stock.</p>
+    <p><strong>Explication :</strong> Cet exercice montre comment <code>every()</code> peut être utilisé avec des objets
+      pour vérifier une condition sur une propriété spécifique de chaque objet dans un tableau.</p>
+    <p><strong>Instructions :</strong> Crée un tableau <code>produits</code> avec des objets contenant deux propriétés :
+      <code>nom</code> (chaîne de caractères) et <code>enStock</code> (booléen). Par exemple :
+    </p>
+
+    <pre><code class="language-javascript">const produits = [
+  { nom: "Ordinateur", enStock: true },
+  { nom: "Téléphone", enStock: true },
+  { nom: "Tablette", enStock: true }
+];
+
+// Utilise every pour vérifier si tous les produits sont en stock
+const allInStock = produits.every(function(produit) {
+  return produit.enStock === true;
+});
+
+console.log("Tous les produits sont-ils en stock ? ", allInStock);</code></pre>
+
+    <hr>
+
+    <h2>Exercice 5 : Vérifier si tous les numéros de téléphone sont valides</h2>
+    <p><strong>Objectif :</strong> Utiliser <code>every()</code> pour vérifier si tous les numéros de téléphone d'un
+      tableau respectent un format spécifique (par exemple, 10 chiffres).</p>
+    <p><strong>Explication :</strong> Cet exercice met en pratique <code>every()</code> pour la validation de formats de
+      données, ici des numéros de téléphone, un cas d'usage courant pour valider des entrées utilisateur.</p>
+    <p><strong>Instructions :</strong> Crée un tableau <code>téléphones</code> avec les éléments suivants :
+      <code>"1234567890"</code>, <code>"0987654321"</code>, <code>"1122334455"</code>. Utilise <code>every()</code> pour
+      vérifier si tous les numéros ont 10 chiffres et affiche le résultat (<code>true</code> ou <code>false</code>).
+    </p>
+
+    <pre><code class="language-javascript">const téléphones = ["1234567890", "0987654321", "1122334455"];
+
+// Utilise every pour vérifier si tous les numéros de téléphone sont valides
+const allValidPhones = téléphones.every(function(téléphone) {
+  return téléphone.length === 10;
+});
+
+console.log("Tous les numéros de téléphone sont-ils valides ? ", allValidPhones);</code></pre>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
