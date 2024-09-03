@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leçons sur les Objets et Classes en JavaScript</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div class="container my-5">
+    <h1 class="mb-4">Leçons sur les Objets et Classes en JavaScript</h1>
+
+    <div class="accordion" id="accordionExample">
+
+      <!-- Leçon 1 : Objets et leurs méthodes -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+            aria-expanded="true" aria-controls="collapseOne">
+            Leçon 1 : Objets et leurs méthodes
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+          data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+
+            <!-- Partie 1 : Méthodes des Objets -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingObjMethods">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseObjMethods" aria-expanded="true" aria-controls="collapseObjMethods">
+                  1. Méthodes des Objets
+                </button>
+              </h2>
+              <div id="collapseObjMethods" class="accordion-collapse collapse show" aria-labelledby="headingObjMethods">
+                <div class="accordion-body">
+                  <p><strong>Imaginons :</strong> Tu as un classeur avec des onglets pour chaque catégorie, comme les
+                    noms, les âges, et les adresses. Les méthodes des objets te permettent de manipuler et d'organiser
+                    ces informations dans le classeur.</p>
+
+                  <ul>
+                    <li><strong>Object.keys() :</strong> Liste tous les onglets du classeur.</li>
+                    <p><em>Analogie :</em> Comme si tu écrivais une liste des onglets pour voir ce qui est dans le
+                      classeur.</p>
+                    <pre><code class="language-javascript">const person = { name: 'John', age: 30, city: 'Paris' };
+console.log(Object.keys(person)); // ["name", "age", "city"]</code></pre>
+
+                    <li><strong>Object.values() :</strong> Liste toutes les informations dans chaque onglet.</li>
+                    <p><em>Analogie :</em> Comme si tu listais toutes les informations sous chaque onglet.</p>
+                    <pre><code class="language-javascript">console.log(Object.values(person)); // ["John", 30, "Paris"]</code></pre>
+
+                    <li><strong>Object.entries() :</strong> Combine les onglets et les informations sous forme de
+                      paires.</li>
+                    <p><em>Analogie :</em> Comme si tu écrivais chaque onglet avec son contenu côte à côte.</p>
+                    <pre><code class="language-javascript">console.log(Object.entries(person)); // [["name", "John"], ["age", 30], ["city", "Paris"]]</code></pre>
+
+                    <li><strong>Object.fromEntries() :</strong> Crée un classeur à partir de paires d’onglets et
+                      d’informations.</li>
+                    <p><em>Analogie :</em> Comme si tu créais un nouveau classeur à partir d'une liste de paires
+                      onglet-information.</p>
+                    <pre><code class="language-javascript">const entries = [["name", "John"], ["age", 30], ["city", "Paris"]];
+const newPerson = Object.fromEntries(entries);
+console.log(newPerson); // { name: "John", age: 30, city: "Paris" }</code></pre>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Partie 2 : Déstructuration d'Objet -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingDestruct">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseDestruct" aria-expanded="false" aria-controls="collapseDestruct">
+                  2. Déstructuration d'Objet
+                </button>
+              </h2>
+              <div id="collapseDestruct" class="accordion-collapse collapse" aria-labelledby="headingDestruct">
+                <div class="accordion-body">
+                  <p><strong>Imaginons :</strong> Tu as un tiroir avec des boîtes, chacune contenant des informations
+                    spécifiques, comme un prénom, un nom de famille, et un âge. La déstructuration te permet de sortir
+                    ces informations des boîtes facilement.</p>
+
+                  <ul>
+                    <li><strong>Déstructuration Simple :</strong> Ouvrir une boîte et prendre ce dont tu as besoin.</li>
+                    <p><em>Analogie :</em> Comme si tu ouvrais une boîte étiquetée "adresse" et que tu prenais juste la
+                      rue et la ville.</p>
+                    <pre><code class="language-javascript">const address = { street: 'Main St', city: 'New York' };
+const { street, city } = address;
+console.log(street); // Main St
+console.log(city); // New York</code></pre>
+
+                    <li><strong>Déstructuration Imbriquée :</strong> Ouvrir une boîte qui contient une autre boîte et en
+                      extraire les informations.</li>
+                    <p><em>Analogie :</em> Comme si tu ouvrais une grande boîte, puis une plus petite à l'intérieur pour
+                      accéder aux informations.</p>
+                    <pre><code class="language-javascript">const student = { name: 'Jane', scores: { maths: 90, english: 80 } };
+const { name, scores: { maths, english } } = student;
+console.log(`${name} a eu ${maths} en maths et ${english} en anglais.`);</code></pre>
+
+                    <li><strong>Déstructuration dans une Fonction :</strong> Utiliser la déstructuration directement
+                      dans les paramètres d'une fonction.</li>
+                    <p><em>Analogie :</em> Comme si tu demandais directement les éléments dont tu as besoin sans avoir à
+                      ouvrir chaque boîte toi-même.</p>
+                    <pre><code class="language-javascript">function showStudent({ name, scores: { maths, english } }) {
+  console.log(`${name} a eu ${maths} en maths et ${english} en anglais.`);
+}</code></pre>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+
+
+            <!-- Partie 3 : Clonage d’un Objet -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingClone">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseClone" aria-expanded="false" aria-controls="collapseClone">
+                  3. Clonage d’un Objet
+                </button>
+              </h2>
+              <div id="collapseClone" class="accordion-collapse collapse" aria-labelledby="headingClone">
+                <div class="accordion-body">
+                  <p><strong>Imaginons :</strong> Tu as un moule en forme de gâteau. Le clonage te permet de faire une
+                    copie exacte du gâteau sans toucher à l'original.</p>
+
+                  <ul>
+                    <li><strong>Clonage Superficiel :</strong> Utiliser un moule pour copier uniquement la surface du
+                      gâteau.</li>
+                    <p><em>Analogie :</em> Comme si tu faisais une copie de la forme extérieure du gâteau, mais que
+                      l'intérieur reste connecté à l'original.</p>
+                    <pre><code class="language-javascript">const car = { color: 'blue', details: { engine: 'V8' } };
+const carClone = { ...car };
+car.color = 'red';
+console.log(carClone.color); // blue (car le clonage est superficiel)</code></pre>
+
+                    <li><strong>Clonage Profond :</strong> Faire une copie complète, y compris les détails intérieurs du
+                      gâteau.</li>
+                    <p><em>Analogie :</em> Comme si tu créais une copie complète du gâteau, y compris les couches
+                      internes.</p>
+                    <pre><code class="language-javascript">const deepClone = JSON.parse(JSON.stringify(car));
+car.details.engine = 'V6';
+console.log(deepClone.details.engine); // V8 (car le clonage est profond)</code></pre>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Leçon 2 : Objets et Classes -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwoLesson" aria-expanded="false" aria-controls="collapseTwoLesson">
+                        Leçon 2 : Objets et Classes
+                    </button>
+                </h2>
+                <div id="collapseTwoLesson" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                    data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+
+                        <!-- Partie A : Classes : Le Plan d'une Maison -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingPlan">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapsePlan" aria-expanded="false" aria-controls="collapsePlan">
+                                    A. Classes : Le Plan d'une Maison
+                                </button>
+                            </h2>
+                            <div id="collapsePlan" class="accordion-collapse collapse" aria-labelledby="headingPlan">
+                                <div class="accordion-body">
+                                    <p><strong>Imaginons :</strong> Tu veux construire plusieurs maisons identiques. Pour cela, tu crées un <strong>plan</strong>. Ce plan décrit comment chaque maison doit être construite : combien de chambres, la taille de la cuisine, etc.</p>
+                                    
+                                    <ul>
+                                        <li><strong>Classe = Plan :</strong> La classe est comme le plan de la maison. C'est un modèle pour créer des objets.</li>
+                                        <li><strong>Maison = Objet :</strong> Chaque maison que tu construis à partir du plan est un objet.</li>
+                                    </ul>
+
+                                    <pre><code class="language-javascript">class Maison {
+  constructor(chambres, cuisine) {
+    this.chambres = chambres;
+    this.cuisine = cuisine;
+  }
+}
+
+let maMaison = new Maison(3, 'grande');</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Partie B : Constructeur : Construire la Maison -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingConstruct">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseConstruct" aria-expanded="false" aria-controls="collapseConstruct">
+                                    B. Constructeur : Construire la Maison
+                                </button>
+                            </h2>
+                            <div id="collapseConstruct" class="accordion-collapse collapse" aria-labelledby="headingConstruct">
+                                <div class="accordion-body">
+                                    <p><strong>Imaginons :</strong> Lorsque tu décides de construire une maison, tu passes des instructions spécifiques : combien de chambres, quelle taille de cuisine. Ces instructions sont utilisées pour créer chaque maison.</p>
+                                    
+                                    <ul>
+                                        <li><strong>Construction = Constructeur :</strong> Le constructeur est la méthode spéciale utilisée pour construire l'objet (maison) à partir de la classe (plan).</li>
+                                    </ul>
+
+                                    <pre><code class="language-javascript">class Maison {
+  constructor(chambres, cuisine) {
+    this.chambres = chambres;
+    this.cuisine = cuisine;
+  }
+}
+
+let maMaison = new Maison(3, 'grande');</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Partie C : Méthodes : Fonctionnalités de la Maison -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingMethods">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseMethods" aria-expanded="false" aria-controls="collapseMethods">
+                                    C. Méthodes : Fonctionnalités de la Maison
+                                </button>
+                            </h2>
+                            <div id="collapseMethods" class="accordion-collapse collapse" aria-labelledby="headingMethods">
+                                <div class="accordion-body">
+                                    <p><strong>Imaginons :</strong> Une fois ta maison construite, tu peux y faire différentes choses, comme ouvrir les fenêtres ou allumer les lumières. Ces actions sont comme des <strong>fonctionnalités</strong> de la maison.</p>
+                                    
+                                    <ul>
+                                        <li><strong>Fonctionnalités = Méthodes :</strong> Les méthodes sont des actions que l'objet (maison) peut effectuer.</li>
+                                    </ul>
+
+                                    <pre><code class="language-javascript">class Maison {
+  constructor(chambres, cuisine) {
+    this.chambres = chambres;
+    this.cuisine = cuisine;
+  }
+
+  ouvrirFenetre() {
+    console.log('Fenêtre ouverte');
+  }
+}
+
+let maMaison = new Maison(3, 'grande');
+maMaison.ouvrirFenetre(); // Fenêtre ouverte</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Partie D : Héritage : Construire une Maison avec des Caractéristiques Supplémentaires -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingInheritance">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseInheritance" aria-expanded="false" aria-controls="collapseInheritance">
+                                    D. Héritage : Construire une Maison avec des Caractéristiques Supplémentaires
+                                </button>
+                            </h2>
+                            <div id="collapseInheritance" class="accordion-collapse collapse" aria-labelledby="headingInheritance">
+                                <div class="accordion-body">
+                                    <p><strong>Imaginons :</strong> Tu veux construire une maison spéciale qui a non seulement toutes les fonctionnalités de la maison de base, mais aussi un jardin. Plutôt que de créer un nouveau plan de zéro, tu prends le plan existant et tu ajoutes un jardin.</p>
+                                    
+                                    <ul>
+                                        <li><strong>Maison avec Jardin = Sous-classe :</strong> Une sous-classe hérite des fonctionnalités de la classe parente et peut avoir des fonctionnalités supplémentaires.</li>
+                                    </ul>
+
+                                    <pre><code class="language-javascript">class Maison {
+  constructor(chambres, cuisine) {
+    this.chambres = chambres;
+    this.cuisine = cuisine;
+  }
+
+  ouvrirFenetre() {
+    console.log('Fenêtre ouverte');
+  }
+}
+
+class MaisonAvecJardin extends Maison {
+  constructor(chambres, cuisine, jardin) {
+    super(chambres, cuisine);
+    this.jardin = jardin;
+  }
+
+  ouvrirPortail() {
+    console.log('Portail ouvert');
+  }
+}
+
+let maMaisonJardin = new MaisonAvecJardin(3, 'grande', 'grand');
+maMaisonJardin.ouvrirFenetre(); // Fenêtre ouverte
+maMaisonJardin.ouvrirPortail(); // Portail ouvert</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+        <div class="container my-5">
+          <h1 class="mb-4">Explications sur la Déstructuration en JavaScript</h1>
+        
+          <!-- Exemple 1 : Déstructuration d'un Tableau -->
+          <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                  aria-expanded="true" aria-controls="collapseOne">
+                  Exemple 1 : Déstructuration d'un Tableau
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <h3>Explication :</h3>
+                  <p>La déstructuration permet d'extraire des valeurs d'un tableau et de les assigner à des variables
+                    distinctes.</p>
+        
+                  <h3>Exemple :</h3>
+                  <pre><code class="language-javascript">const arr = ['🥓', '🍕', '🍟'];
+        
+        const [bacon, pizza, fries] = arr;
+        
+        console.log(pizza); // 🍕</code></pre>
+        
+                  <h3>Analogie :</h3>
+                  <p>Imaginez que vous avez une boîte contenant du bacon, une pizza, et des frites. Grâce à la déstructuration,
+                    vous pouvez facilement sortir chaque élément de la boîte et les placer sur des assiettes distinctes.</p>
+                </div>
+              </div>
+            </div>
+        
+            <!-- Exemple 2 : Déstructuration d'un Objet -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                  aria-expanded="false" aria-controls="collapseTwo">
+                  Exemple 2 : Déstructuration d'un Objet
+                </button>
+              </h2>
+              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <h3>Explication :</h3>
+                  <p>La déstructuration permet également d'extraire des propriétés d'un objet imbriqué.</p>
+        
+                  <h3>Exemple :</h3>
+                  <pre><code class="language-javascript">const obj = {
+            parent: {
+                child: '👶'
+            }
+        };
+        
+        const { parent: { child } } = obj;
+        
+        console.log(child); // 👶</code></pre>
+        
+                  <h3>Analogie :</h3>
+                  <p>Imaginez une boîte (objet parent) contenant une plus petite boîte (enfant). La déstructuration vous permet
+                    d'ouvrir directement la plus petite boîte pour accéder à son contenu sans avoir à manipuler directement la
+                    boîte parent.</p>
+                </div>
+              </div>
+            </div>
+        
+            <!-- Exemple 3 : Renommer des Propriétés avec la Déstructuration -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  Exemple 3 : Renommer des Propriétés avec la Déstructuration
+                </button>
+              </h2>
+              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <h3>Explication :</h3>
+                  <p>La déstructuration vous permet aussi de renommer les propriétés lorsque vous les extrayez d'un objet.</p>
+        
+                  <h3>Exemple :</h3>
+                  <pre><code class="language-javascript">const obj = {
+            shroom: '🍄',
+            banana: '🍌',
+            pepper: '🌶️'
+        };
+        
+        const { shroom: mushroom } = obj;
+        
+        console.log(mushroom); // 🍄</code></pre>
+        
+                  <h3>Analogie :</h3>
+                  <p>Imaginez que vous avez un panier contenant un champignon, une banane, et un piment. Vous pouvez décider de
+                    renommer le champignon en 'mushroom' pour le rendre plus compréhensible dans un autre contexte, tout en
+                    conservant le lien avec l'élément original.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
