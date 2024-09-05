@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cours :HTTP : La Route entre le Client et le Serveur
+  </title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<div>
+  <!-- Le contenu principal du cours sera ici -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Cours HTTP & Forms</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#http_intro">Introduction HTTP</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#http_methods">Méthodes HTTP</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#http_request">Requête HTTP</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#http_response">Réponse HTTP</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#status_codes">Codes de Statut</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#forms">Formulaires HTML</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- nav -->
+
+  <div class="container my-5">
+    <h2 id="http_intro">HTTP : La Route entre le Client et le Serveur</h2>
+
+    <div class="accordion" id="httpAccordion">
+      <!-- Accordion for Introduction -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingIntro">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseIntro"
+            aria-expanded="true" aria-controls="collapseIntro">
+            Introduction à HTTP
+          </button>
+        </h2>
+        <div id="collapseIntro" class="accordion-collapse collapse show" aria-labelledby="headingIntro"
+          data-bs-parent="#httpAccordion">
+          <div class="accordion-body">
+            <strong>HTTP est un protocole stateless.</strong> Imaginez un facteur qui envoie des lettres au serveur
+            sans
+            garder de mémoire des précédentes. Chaque requête est indépendante des autres.
+          </div>
+        </div>
+      </div>
+
+      <!-- Accordion for HTTP Methods -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingMethods">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseMethods" aria-expanded="false" aria-controls="collapseMethods">
+            Méthodes HTTP
+          </button>
+        </h2>
+        <div id="collapseMethods" class="accordion-collapse collapse" aria-labelledby="headingMethods"
+          data-bs-parent="#httpAccordion">
+          <div class="accordion-body">
+            <ul>
+              <li><strong>GET :</strong> Le facteur demande des informations au serveur, visibles dans l'URL.</li>
+              <li><strong>POST :</strong> Le facteur envoie des informations sensibles au serveur dans le corps de la
+                requête.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Accordion for HTTP Request -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingRequest">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseRequest" aria-expanded="false" aria-controls="collapseRequest">
+            Requête HTTP
+          </button>
+        </h2>
+        <div id="collapseRequest" class="accordion-collapse collapse" aria-labelledby="headingRequest"
+          data-bs-parent="#httpAccordion">
+          <div class="accordion-body">
+            <p>La requête HTTP contient trois parties principales :</p>
+            <ul>
+              <li><strong>Ligne de démarrage :</strong> Spécifie la méthode (GET, POST) et la version HTTP.</li>
+              <li><strong>Headers :</strong> Donnent des informations supplémentaires sur la requête.</li>
+              <li><strong>Body :</strong> Contient les données réelles envoyées au serveur.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Accordion for HTTP Response -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingResponse">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseResponse" aria-expanded="false" aria-controls="collapseResponse">
+            Réponse HTTP
+          </button>
+        </h2>
+        <div id="collapseResponse" class="accordion-collapse collapse" aria-labelledby="headingResponse"
+          data-bs-parent="#httpAccordion">
+          <div class="accordion-body">
+            <p>La réponse HTTP contient trois éléments principaux :</p>
+            <ul>
+              <li><strong>Ligne de statut :</strong> Indique si la requête a réussi, par exemple "HTTP/1.1 200 OK".
+              </li>
+              <li><strong>Headers :</strong> Donnent des informations sur le format des données renvoyées.</li>
+              <li><strong>Body :</strong> Contient les données réelles renvoyées par le serveur.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Accordion for Status Codes -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingStatusCodes">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseStatusCodes" aria-expanded="false" aria-controls="collapseStatusCodes">
+            Codes de Statut
+          </button>
+        </h2>
+        <div id="collapseStatusCodes" class="accordion-collapse collapse" aria-labelledby="headingStatusCodes"
+          data-bs-parent="#httpAccordion">
+          <div class="accordion-body">
+            <p>Quelques exemples de codes de statut :</p>
+            <ul>
+              <li><strong>200 OK :</strong> La requête a réussi.</li>
+              <li><strong>404 Not Found :</strong> La ressource demandée n'a pas été trouvée.</li>
+              <li><strong>500 Internal Server Error :</strong> Une erreur s'est produite côté serveur.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="container my-5">
+    <h2 id="forms">Formulaires HTML</h2>
+
+    <div class="accordion" id="formAccordion">
+      <!-- Accordion for Form Action -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingAction">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAction"
+            aria-expanded="true" aria-controls="collapseAction">
+            L'Attribut Action
+          </button>
+        </h2>
+        <div id="collapseAction" class="accordion-collapse collapse show" aria-labelledby="headingAction"
+          data-bs-parent="#formAccordion">
+          <div class="accordion-body">
+            <p>L'attribut <strong>action</strong> spécifie où les données du formulaire sont envoyées lorsqu'elles
+              sont
+              soumises.</p>
+            <p><strong>Exemple :</strong></p>
+            <pre><code>&lt;form action="https://example.com"&gt;&lt;/form&gt;</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Accordion for Form Method -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingMethod">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseMethod" aria-expanded="false" aria-controls="collapseMethod">
+            L'Attribut Method
+          </button>
+        </h2>
+        <div id="collapseMethod" class="accordion-collapse collapse" aria-labelledby="headingMethod"
+          data-bs-parent="#formAccordion">
+          <div class="accordion-body">
+            <p>L'attribut <strong>method</strong> définit comment les données sont envoyées. Il y a deux méthodes
+              principales :</p>
+
+            <ul>
+              <li><strong>GET :</strong> Les données sont envoyées en tant que paramètres d'URL (visible dans l'URL).
+              </li>
+              <li><strong>POST :</strong> Les données sont envoyées dans le corps de la requête, non visibles dans
+                l'URL.</li>
+            </ul>
+            <p><strong>Exemple :</strong></p>
+            <pre><code>&lt;form method=&quot;POST&quot; action=&quot;index.html&quot;&gt;&lt;/form&gt;</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Accordion for GET Method -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingGET">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseGET" aria-expanded="false" aria-controls="collapseGET">
+            Méthode GET : Les Données dans l'URL
+          </button>
+        </h2>
+        <div id="collapseGET" class="accordion-collapse collapse" aria-labelledby="headingGET"
+          data-bs-parent="#formAccordion">
+          <div class="accordion-body">
+            <p>Avec la méthode <strong>GET</strong>, les données du formulaire sont ajoutées à l'URL sous forme de
+              paires
+              <code>name=value</code>.
+            </p>
+            <p><strong>Exemple :</strong></p>
+            <pre><code>&lt;form method="GET" action="index.html"&gt;
+                                                    &lt;p&gt;Name: &lt;input type="text" name="name"&gt;&lt;/p&gt;
+                                                    &lt;p&gt;Message:&lt;br&gt;&lt;textarea name="message"&gt;&lt;/textarea&gt;&lt;/p&gt;
+                                                    &lt;p&gt;&lt;button type="submit"&gt;Send&lt;/button&gt;&lt;/p&gt;
+                                                  &lt;/form&gt;
+                                        </code></pre>
+            <p>Lorsque vous soumettez ce formulaire, l'URL pourrait ressembler à :</p>
+            <pre><code>index.html?name=John&message=Hello</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Accordion for POST Method -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingPOST">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapsePOST" aria-expanded="false" aria-controls="collapsePOST">
+            Méthode POST : Les Données dans le Corps
+          </button>
+        </h2>
+        <div id="collapsePOST" class="accordion-collapse collapse" aria-labelledby="headingPOST"
+          data-bs-parent="#formAccordion">
+          <div class="accordion-body">
+            <p>Avec la méthode <strong>POST</strong>, les données sont envoyées dans le corps de la requête et non
+              dans
+              l'URL.
+            </p>
+            <p><strong>Exemple :</strong></p>
+            <pre><code>&lt;form method="POST" action="index.html"&gt;
+                                                    &lt;p&gt;Name: &lt;input type="text" name="name"&gt;&lt;/p&gt;
+                                                    &lt;p&gt;Message:&lt;br&gt;&lt;textarea name="message"&gt;&lt;/textarea&gt;&lt;/p&gt;
+                                                    &lt;p&gt;&lt;button type="submit"&gt;Send&lt;/button&gt;&lt;/p&gt;
+                                                  &lt;/form&gt;
+                                        </code></pre>
+            <p>Les données sont envoyées sous cette forme dans le corps de la requête :</p>
+            <pre><code>Body "name=John&message=Hello"</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Section des Exceptions avec un Accordion -->
+  <div class="container my-5">
+    <h2 id="exceptions">Gestion des Exceptions en JavaScript</h2>
+
+    <div class="accordion" id="exceptionAccordion">
+      <!-- Accordion for Exceptions Overview -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingExceptions">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExceptions"
+            aria-expanded="true" aria-controls="collapseExceptions">
+            Exceptions : Les Signaux d'Alerte dans Ton Programme
+          </button>
+        </h2>
+        <div id="collapseExceptions" class="accordion-collapse collapse show" aria-labelledby="headingExceptions"
+          data-bs-parent="#exceptionAccordion">
+          <div class="accordion-body">
+            <p><strong>Analogie :</strong> Imagine que ton programme est une voiture. Quand quelque chose ne va pas
+              (comme un pneu crevé), la voiture déclenche un signal d'alerte (une exception). Tu peux décider quoi
+              faire
+              avec cette alerte, par exemple, réparer le pneu et continuer de conduire. C'est exactement ce que fait
+              une
+              exception dans un programme : elle te signale un problème, et tu peux choisir comment le gérer.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Accordion for try/catch -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTryCatch">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseTryCatch" aria-expanded="false" aria-controls="collapseTryCatch">
+            Bloc try/catch : Attraper les Problèmes
+          </button>
+        </h2>
+        <div id="collapseTryCatch" class="accordion-collapse collapse" aria-labelledby="headingTryCatch"
+          data-bs-parent="#exceptionAccordion">
+          <div class="accordion-body">
+            <p><strong>try :</strong> Imagine que tu fais un test risqué dans ton programme, comme conduire sur une
+              route avec des obstacles. Tu encadres ce test avec un bloc try pour voir si tout se passe bien.</p>
+            <p><strong>catch :</strong> Si tu rencontres un obstacle (une exception), le bloc catch attrape ce
+              problème
+              et
+              te permet de réagir (comme réparer le pneu).</p>
+            <pre><code>
+                                          try {
+                                            let x = 5;
+                                            x = y + 1; // Erreur car "y" n'est pas défini
+                                          } catch (err) {
+                                            console.log("Erreur attrapée : ", err.message);
+                                          }
+                                        </code></pre>
+            <p>Sortie :</p>
+            <pre><code>Erreur attrapée : y is not defined</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Accordion for finally -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingFinally">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseFinally" aria-expanded="false" aria-controls="collapseFinally">
+            finally : Toujours Exécuté
+          </button>
+        </h2>
+        <div id="collapseFinally" class="accordion-collapse collapse" aria-labelledby="headingFinally"
+          data-bs-parent="#exceptionAccordion">
+          <div class="accordion-body">
+            <p><strong>finally :</strong> Ce bloc contient du code qui est exécuté <strong>quoi qu'il arrive</strong>,
+              même s'il y a une erreur ou non.</p>
+            <pre><code>
+                                          try {
+                                            console.log("Début du bloc try");
+                                            hello; // Provoque une erreur
+                                          } catch (err) {
+                                            console.log("Erreur attrapée : ", err.message);
+                                          } finally {
+                                            console.log("Bloc finally exécuté");
+                                          }
+                                        </code></pre>
+            <p>Sortie :</p>
+            <pre><code>
+                                          Début du bloc try
+                                          Erreur attrapée : hello is not defined
+                                          Bloc finally exécuté
+                                        </code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Accordion for throw -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThrow">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseThrow" aria-expanded="false" aria-controls="collapseThrow">
+            Le Lancement d'Exceptions : throw
+          </button>
+        </h2>
+        <div id="collapseThrow" class="accordion-collapse collapse" aria-labelledby="headingThrow"
+          data-bs-parent="#exceptionAccordion">
+          <div class="accordion-body">
+            <p><strong>throw :</strong> Si tu détectes toi-même un problème, tu peux jeter l'alerte avec
+              <code>throw</code>.
+              C'est comme déclencher manuellement le signal d'alerte dans la voiture.
+            </p>
+            <pre><code>
+                                          const diviser = (a, b) => {
+                                            try {
+                                              if (b === 0) {
+                                                throw new Error("Impossible de diviser par zéro");
+                                              }
+                                              console.log("Résultat : ", a / b);
+                                            } catch (err) {
+                                              console.log("Erreur : ", err.message);
+                                            }
+                                          }
+                                          
+                                          diviser(10, 0); // Impossible de diviser par zéro
+                                        </code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Accordion for Types of Errors -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingErrorTypes">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseErrorTypes" aria-expanded="false" aria-controls="collapseErrorTypes">
+            Types d'Erreurs en JavaScript
+          </button>
+        </h2>
+        <div id="collapseErrorTypes" class="accordion-collapse collapse" aria-labelledby="headingErrorTypes"
+          data-bs-parent="#exceptionAccordion">
+          <div class="accordion-body">
+            <p>Voici quelques types d'erreurs intégrées dans JavaScript :</p>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Erreur</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>ReferenceError</td>
+                  <td>Se produit lorsqu'une référence invalide est utilisée (comme une variable non définie).</td>
+                </tr>
+                <tr>
+                  <td>SyntaxError</td>
+                  <td>Erreur de syntaxe (par exemple, code mal écrit ou manquant).</td>
+                </tr>
+                <tr>
+                  <td>TypeError</td>
+                  <td>Se produit lorsqu'une valeur n'est pas du bon type.</td>
+                </tr>
+                <tr>
+                  <td>RangeError</td>
+                  <td>Se produit lorsque la valeur est en dehors de l'intervalle autorisé.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container my-5">
+    <h2 id="destructuring_examples">Exemples Simples : Déstructuration et Passage par Valeur/Référence</h2>
+
+    <div class="accordion" id="simpleExamplesAccordion">
+      <!-- Accordion for Destructuring Example -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingDestructuring">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseDestructuring" aria-expanded="true" aria-controls="collapseDestructuring">
+            Déstructuration : Extraire des Valeurs d'un Tableau
+          </button>
+        </h2>
+        <div id="collapseDestructuring" class="accordion-collapse collapse show" aria-labelledby="headingDestructuring"
+          data-bs-parent="#simpleExamplesAccordion">
+          <div class="accordion-body">
+            <p><strong>Explication :</strong> La déstructuration permet d'extraire des valeurs d'un tableau et de les
+              assigner à des variables distinctes.</p>
+            <p><strong>Exemple :</strong></p>
+            <pre><code>
+            const arr = ['🥓', '🍕', '🍟'];
+            const [bacon, pizza, fries] = arr;
+            console.log(pizza); // 🍕
+                      </code></pre>
+            <p>Dans cet exemple, les éléments du tableau <code>arr</code> sont assignés directement aux variables
+              <code>bacon</code>, <code>pizza</code> et <code>fries</code>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Accordion for Pass By Value -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingPassByValue">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapsePassByValue" aria-expanded="false" aria-controls="collapsePassByValue">
+            Passer par Valeur : Copier une Feuille
+          </button>
+        </h2>
+        <div id="collapsePassByValue" class="accordion-collapse collapse" aria-labelledby="headingPassByValue"
+          data-bs-parent="#simpleExamplesAccordion">
+          <div class="accordion-body">
+            <p><strong>Explication :</strong> Quand tu passes une valeur primitive (comme un nombre), une copie est
+              faite.
+              Un changement sur une variable n'affecte pas l'autre.</p>
+            <p><strong>Analogie :</strong> C'est comme copier une feuille de papier avec un nombre. Si tu changes ta
+              feuille, l'autre copie ne change pas.</p>
+            <p><strong>Exemple :</strong></p>
+            <pre><code>
+            let x = 10;      // Tu écris "10" sur une feuille de papier
+            let y = x;       // Tu fais une copie de la feuille de papier pour quelqu'un d'autre
+            x = 20;          // Tu changes ton propre papier en "20"
+            console.log(y);  // L'autre personne voit toujours "10" sur sa copie
+                      </code></pre>
+            <p>Ici, <code>x</code> a été modifié à 20, mais <code>y</code> reste à 10, car ils ne partagent pas la
+              même
+              feuille.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Accordion for Pass By Reference -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingPassByReference">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapsePassByReference" aria-expanded="false" aria-controls="collapsePassByReference">
+            Passer par Référence : Partager un Plan de Maison
+          </button>
+        </h2>
+        <div id="collapsePassByReference" class="accordion-collapse collapse" aria-labelledby="headingPassByReference"
+          data-bs-parent="#simpleExamplesAccordion">
+          <div class="accordion-body">
+            <p><strong>Explication :</strong> Quand tu passes un objet ou un tableau, tu donnes une référence à
+              l'objet
+              original. Changer l'objet affecte toutes les variables qui pointent vers lui.</p>
+            <p><strong>Analogie :</strong> C'est comme partager le même plan de maison. Si quelqu'un modifie le plan,
+              tout
+              le monde voit le changement.</p>
+            <p><strong>Exemple :</strong></p>
+            <pre><code>
+            let house = { color: 'blue' }; // Un plan de maison bleu
+            let anotherHouse = house;      // Tu donnes le même plan à quelqu'un d'autre
+            house.color = 'red';           // Tu changes la couleur sur le plan
+            console.log(anotherHouse.color); // L'autre personne voit aussi "red"
+                      </code></pre>
+            <p>Dans cet exemple, <code>house</code> et <code>anotherHouse</code> pointent vers le même objet. Changer
+              la
+              couleur dans <code>house</code> affecte aussi <code>anotherHouse</code>.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Accordion for Summary -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingSummary">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseSummary" aria-expanded="false" aria-controls="collapseSummary">
+            Résumé : Passer par Valeur vs. Référence
+          </button>
+        </h2>
+        <div id="collapseSummary" class="accordion-collapse collapse" aria-labelledby="headingSummary"
+          data-bs-parent="#simpleExamplesAccordion">
+          <div class="accordion-body">
+            <p><strong>Passer par Valeur :</strong></p>
+            <ul>
+              <li>Comme copier un papier avec un nombre.</li>
+              <li>Chaque variable a sa propre copie, un changement dans une variable n'affecte pas l'autre.</li>
+            </ul>
+            <p><strong>Passer par Référence :</strong></p>
+            <ul>
+              <li>Comme partager le même plan de maison.</li>
+              <li>Toutes les variables pointent vers le même objet, un changement est visible par tous.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Accordion for GET Method -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingGET">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseGET" aria-expanded="false" aria-controls="collapseGET">
+            Méthode GET : Les Données dans l'URL
+          </button>
+        </h2>
+        <div id="collapseGET" class="accordion-collapse collapse" aria-labelledby="headingGET"
+          data-bs-parent="#formAccordion">
+          <div class="accordion-body">
+            <p>Avec la méthode <strong>GET</strong>, les données du formulaire sont ajoutées à l'URL sous forme de
+              paires
+              <code>name=value</code>.
+            </p>
+            <p><strong>Exemple :</strong></p>
+            <pre><code>&lt;form method="GET" action="index.html"&gt;
+              &lt;p&gt;Name: &lt;input type="text" name="name"&gt;&lt;/p&gt;
+              &lt;p&gt;Message:&lt;br&gt;&lt;textarea name="message"&gt;&lt;/textarea&gt;&lt;/p&gt;
+              &lt;p&gt;&lt;button type="submit"&gt;Send&lt;/button&gt;&lt;/p&gt;
+            &lt;/form&gt;
+          </code></pre>
+            <p>Lorsque vous soumettez ce formulaire, l'URL pourrait ressembler à :</p>
+            <pre><code>index.html?name=John&message=Hello</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Accordion for POST Method -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingPOST">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapsePOST" aria-expanded="false" aria-controls="collapsePOST">
+            Méthode POST : Les Données dans le Corps
+          </button>
+        </h2>
+        <div id="collapsePOST" class="accordion-collapse collapse" aria-labelledby="headingPOST"
+          data-bs-parent="#formAccordion">
+          <div class="accordion-body">
+            <p>Avec la méthode <strong>POST</strong>, les données sont envoyées dans le corps de la requête et non
+              dans
+              l'URL.
+            </p>
+            <p><strong>Exemple :</strong></p>
+            <pre><code>&lt;form method="POST" action="index.html"&gt;
+              &lt;p&gt;Name: &lt;input type="text" name="name"&gt;&lt;/p&gt;
+              &lt;p&gt;Message:&lt;br&gt;&lt;textarea name="message"&gt;&lt;/textarea&gt;&lt;/p&gt;
+              &lt;p&gt;&lt;button type="submit"&gt;Send&lt;/button&gt;&lt;/p&gt;
+            &lt;/form&gt;
+          </code></pre>
+            <p>Les données sont envoyées sous cette forme dans le corps de la requête :</p>
+            <pre><code>Body "name=John&message=Hello"</code></pre>
+          </div>
+        </div>
+      </div>
+
+
+
+      <!-- Section des Exceptions avec un Accordion -->
+      <div class="container my-5">
+        <h2 id="exceptions">Gestion des Exceptions en JavaScript</h2>
+
+        <div class="accordion" id="exceptionAccordion">
+          <!-- Accordion for Exceptions Overview -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingExceptions">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseExceptions" aria-expanded="true" aria-controls="collapseExceptions">
+                Exceptions : Les Signaux d'Alerte dans Ton Programme
+              </button>
+            </h2>
+            <div id="collapseExceptions" class="accordion-collapse collapse show" aria-labelledby="headingExceptions"
+              data-bs-parent="#exceptionAccordion">
+              <div class="accordion-body">
+                <p><strong>Analogie :</strong> Imagine que ton programme est une voiture. Quand quelque chose ne va
+                  pas
+                  (comme un pneu crevé), la voiture déclenche un signal d'alerte (une exception). Tu peux décider quoi
+                  faire
+                  avec cette alerte, par exemple, réparer le pneu et continuer de conduire. C'est exactement ce que
+                  fait une
+                  exception dans un programme : elle te signale un problème, et tu peux choisir comment le gérer.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Accordion for try/catch -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTryCatch">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseTryCatch" aria-expanded="false" aria-controls="collapseTryCatch">
+                Bloc try/catch : Attraper les Problèmes
+              </button>
+            </h2>
+            <div id="collapseTryCatch" class="accordion-collapse collapse" aria-labelledby="headingTryCatch"
+              data-bs-parent="#exceptionAccordion">
+              <div class="accordion-body">
+                <p><strong>try :</strong> Imagine que tu fais un test risqué dans ton programme, comme conduire sur
+                  une
+                  route avec des obstacles. Tu encadres ce test avec un bloc try pour voir si tout se passe bien.</p>
+                <p><strong>catch :</strong> Si tu rencontres un obstacle (une exception), le bloc catch attrape ce
+                  problème
+                  et
+                  te permet de réagir (comme réparer le pneu).</p>
+                <pre><code>
+                                      try {
+                                        let x = 5;
+                                        x = y + 1; // Erreur car "y" n'est pas défini
+                                      } catch (err) {
+                                        console.log("Erreur attrapée : ", err.message);
+                                      }
+                                    </code></pre>
+                <p>Sortie :</p>
+                <pre><code>Erreur attrapée : y is not defined</code></pre>
+              </div>
+            </div>
+          </div>
+
+          <!-- Accordion for finally -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingFinally">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseFinally" aria-expanded="false" aria-controls="collapseFinally">
+                finally : Toujours Exécuté
+              </button>
+            </h2>
+            <div id="collapseFinally" class="accordion-collapse collapse" aria-labelledby="headingFinally"
+              data-bs-parent="#exceptionAccordion">
+              <div class="accordion-body">
+                <p><strong>finally :</strong> Ce bloc contient du code qui est exécuté <strong>quoi qu'il
+                    arrive</strong>,
+                  même s'il y a une erreur ou non.</p>
+                <pre><code>
+                                      try {
+                                        console.log("Début du bloc try");
+                                        hello; // Provoque une erreur
+                                      } catch (err) {
+                                        console.log("Erreur attrapée : ", err.message);
+                                      } finally {
+                                        console.log("Bloc finally exécuté");
+                                      }
+                                    </code></pre>
+                <p>Sortie :</p>
+                <pre><code>
+                                      Début du bloc try
+                                      Erreur attrapée : hello is not defined
+                                      Bloc finally exécuté
+                                    </code></pre>
+              </div>
+            </div>
+          </div>
+
+          <!-- Accordion for throw -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThrow">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseThrow" aria-expanded="false" aria-controls="collapseThrow">
+                Le Lancement d'Exceptions : throw
+              </button>
+            </h2>
+            <div id="collapseThrow" class="accordion-collapse collapse" aria-labelledby="headingThrow"
+              data-bs-parent="#exceptionAccordion">
+              <div class="accordion-body">
+                <p><strong>throw :</strong> Si tu détectes toi-même un problème, tu peux jeter l'alerte avec
+                  <code>throw</code>.
+                  C'est comme déclencher manuellement le signal d'alerte dans la voiture.
+                </p>
+                <pre><code>
+                                      const diviser = (a, b) => {
+                                        try {
+                                          if (b === 0) {
+                                            throw new Error("Impossible de diviser par zéro");
+                                          }
+                                          console.log("Résultat : ", a / b);
+                                        } catch (err) {
+                                          console.log("Erreur : ", err.message);
+                                        }
+                                      }
+                                      
+                                      diviser(10, 0); // Impossible de diviser par zéro
+                                    </code></pre>
+              </div>
+            </div>
+          </div>
+
+          <!-- Accordion for Types of Errors -->
+
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingErrorTypes">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseErrorTypes" aria-expanded="false" aria-controls="collapseErrorTypes">
+                Types d'Erreurs en JavaScript
+              </button>
+            </h2>
+            <div id="collapseErrorTypes" class="accordion-collapse collapse" aria-labelledby="headingErrorTypes"
+              data-bs-parent="#exceptionAccordion">
+              <div class="accordion-body">
+                <p>Voici quelques types d'erreurs intégrées dans JavaScript :</p>
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Erreur</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>ReferenceError</td>
+                      <td>Se produit lorsqu'une référence invalide est utilisée (comme une variable non définie).</td>
+                    </tr>
+                    <tr>
+                      <td>SyntaxError</td>
+                      <td>Erreur de syntaxe (par exemple, code mal écrit ou manquant).</td>
+                    </tr>
+                    <tr>
+                      <td>TypeError</td>
+                      <td>Se produit lorsqu'une valeur n'est pas du bon type.</td>
+                    </tr>
+                    <tr>
+                      <td>RangeError</td>
+                      <td>Se produit lorsque la valeur est en dehors de l'intervalle autorisé.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container my-5">
+        <h1>Exemples Simplifiés : HTTP, Formulaires et Exceptions</h1>
+        <div class="accordion" id="simpleExamplesAccordion">
+
+          <!-- Accordion for HTTP -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingHTTP">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHTTP"
+                aria-expanded="true" aria-controls="collapseHTTP">
+                1. HTTP : Envoyer des Messages 📬
+              </button>
+            </h2>
+            <div id="collapseHTTP" class="accordion-collapse collapse show" aria-labelledby="headingHTTP"
+              data-bs-parent="#simpleExamplesAccordion">
+              <div class="accordion-body">
+                <p><strong>Explication :</strong> Imagine que ton <strong>ordinateur</strong> veut parler à un
+                  <strong>serveur</strong>. Pour ça, il envoie des <strong>messages</strong> !
+                </p>
+                <p><strong>GET 📥 :</strong> "Je veux quelque chose !" (par exemple, demander une image).</p>
+                <p><strong>POST 📤 :</strong> "Je t'envoie quelque chose !" (comme un formulaire rempli).</p>
+                <pre><code>
+// GET 📥 : "Je veux une image !"
+fetch('https://site.com/image')
+  .then(response => response.json())  // On reçoit l'image
+  .then(data => console.log(data));   // On la montre
+
+// POST 📤 : "Je t'envoie une lettre !"
+fetch('https://site.com/form', {
+  method: 'POST',
+  body: JSON.stringify({ message: '💌' }) // On envoie une lettre
+})
+  .then(response => response.json())  // On reçoit la réponse
+  .then(data => console.log(data));   // On la montre
+            </code></pre>
+              </div>
+            </div>
+          </div>
+
+          <!-- Accordion for Forms -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingForms">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseForms" aria-expanded="false" aria-controls="collapseForms">
+                2. Formulaire : Envoyer des Infos comme une Lettre 📝✉️
+              </button>
+            </h2>
+            <div id="collapseForms" class="accordion-collapse collapse" aria-labelledby="headingForms"
+              data-bs-parent="#simpleExamplesAccordion">
+              <div class="accordion-body">
+                <p><strong>Explication :</strong> Imagine que tu remplis une <strong>lettre</strong> (formulaire) et
+                  que tu
+                  veux l'envoyer.</p>
+                <p><strong>GET 📬 :</strong> Tout est visible sur la carte postale (l'URL).</p>
+                <p><strong>POST 📩 :</strong> Les infos sont cachées dans une enveloppe (pas visibles dans l'URL).</p>
+                <pre><code>
+<!-- Formulaire GET 📬 : Tout est visible -->
+<form action="/send" method="GET">
+  <input type="text" name="name" placeholder="Ton nom 👤">
+  <button type="submit">Envoyer ✉️</button>
+</form>
+
+<!-- Formulaire POST 📩 : Les infos sont cachées -->
+<form action="/send" method="POST">
+  <input type="text" name="name" placeholder="Ton nom 👤">
+  <button type="submit">Envoyer 💌</button>
+</form>
+            </code></pre>
+              </div>
+            </div>
+          </div>
+
+          <!-- Accordion for Exceptions -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingExceptions">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseExceptions" aria-expanded="false" aria-controls="collapseExceptions">
+                3. Exceptions : Gérer les Problèmes 🚨
+              </button>
+            </h2>
+            <div id="collapseExceptions" class="accordion-collapse collapse" aria-labelledby="headingExceptions"
+              data-bs-parent="#simpleExamplesAccordion">
+              <div class="accordion-body">
+                <p><strong>Explication :</strong> Parfois, il y a des <strong>problèmes</strong> dans ton programme,
+                  comme
+                  ajouter des pommes à des bananes 🍌.</p>
+                <p><strong>try</strong> : On essaie de faire quelque chose.</p>
+                <p><strong>catch</strong> : Si ça casse, on répare !</p>
+                <pre><code>
+try {
+  let x = y + 1;  // 💥 Oups, y n'existe pas !
+} catch (err) {
+  console.log('Erreur 🚨 :', err.message);  // On répare
+} finally {
+  console.log('Fini ✔️');  // On termine toujours ici
+}
+            </code></pre>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+      </body>
+
+      </html>

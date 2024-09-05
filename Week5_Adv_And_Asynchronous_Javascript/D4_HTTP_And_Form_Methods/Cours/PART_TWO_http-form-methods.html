@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Environnement HTTP et Formulaires</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container my-5">
+    <h1>Environnement HTTP : Explorer le Monde du Web</h1>
+    <div class="accordion" id="courseAccordion">
+
+      <!-- Section 1: L’Environnement HTTP -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingHTTP">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHTTP"
+            aria-expanded="true" aria-controls="collapseHTTP">
+            1. L’Environnement HTTP : La Route entre Client et Serveur
+          </button>
+        </h2>
+        <div id="collapseHTTP" class="accordion-collapse collapse show" aria-labelledby="headingHTTP"
+          data-bs-parent="#courseAccordion">
+          <div class="accordion-body">
+            <p>Imagine que ton <strong>navigateur</strong> est un <strong>explorateur</strong> qui utilise des
+              <strong>routes</strong> (URLs) pour trouver des <strong>ressources</strong> sur des serveurs web. HTTP est
+              le <strong>langage</strong> utilisé pour demander des ressources et recevoir des réponses du serveur.
+            </p>
+
+            <h5>Statuts HTTP : Les Panneaux de Signalisation</h5>
+            <ul>
+              <li><strong>200 OK ✅ :</strong> La demande a réussi. Exemple : `google.com` renvoie un <strong>200
+                  OK</strong>.</li>
+              <li><strong>404 Not Found 🚫 :</strong> Ressource introuvable. Exemple : une URL incorrecte.</li>
+              <li><strong>500 Internal Server Error 💥 :</strong> Erreur serveur. Exemple : un bug sur un site.</li>
+              <li><strong>202 Accepted 📥 :</strong> La demande est acceptée mais en cours de traitement.</li>
+            </ul>
+
+            <h5>Se Déplacer avec les Méthodes HTTP :</h5>
+            <ul>
+              <li><strong>GET 📥 :</strong> Demander une ressource sans rien changer. Exemple : Aller sur
+                `https://mon_site.com/photo.jpg`.</li>
+              <li><strong>POST 📤 :</strong> Envoyer des données cachées dans le corps de la requête. Exemple : Remplir
+                un formulaire.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 2: L’Univers des Formulaires -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingForms">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseForms" aria-expanded="false" aria-controls="collapseForms">
+            2. L’Univers des Formulaires : Interaction avec le Monde Web
+          </button>
+        </h2>
+        <div id="collapseForms" class="accordion-collapse collapse" aria-labelledby="headingForms"
+          data-bs-parent="#courseAccordion">
+          <div class="accordion-body">
+            <p>Les <strong>formulaires HTML</strong> sont comme des <strong>ponts</strong> entre toi (l’utilisateur) et
+              le serveur. Tu envoies des informations au serveur pour les traiter.</p>
+
+            <h5>Action et Méthode :</h5>
+            <ul>
+              <li><strong>Action 🎯 :</strong> Où vont les informations ?</li>
+              <li><strong>Méthode 📬 :</strong> <strong>GET</strong> (visible dans l’URL) ou <strong>POST</strong>
+                (caché dans le corps de la requête).</li>
+            </ul>
+
+            <h5>Exemple : Remplir et Envoyer un Formulaire</h5>
+            <pre><code>
+<form action="/login" method="POST">
+  <label for="username">Nom d'utilisateur :</label>
+  <input type="text" id="username" name="username">
+  <label for="password">Mot de passe :</label>
+  <input type="password" id="password" name="password">
+  <button type="submit">Connexion</button>
+</form>
+            </code></pre>
+            <p>Dans cet exemple, avec la <strong>méthode POST</strong>, les informations sont envoyées de manière cachée
+              au serveur.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 3: Exceptions -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingExceptions">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseExceptions" aria-expanded="false" aria-controls="collapseExceptions">
+            3. Exceptions : Gérer les Imprévus dans ton Exploration 🚨
+          </button>
+        </h2>
+        <div id="collapseExceptions" class="accordion-collapse collapse" aria-labelledby="headingExceptions"
+          data-bs-parent="#courseAccordion">
+          <div class="accordion-body">
+            <p>Des imprévus peuvent survenir dans ton programme. Avec les <strong>exceptions</strong>, tu peux
+              intercepter et gérer les erreurs sans arrêter tout le programme.</p>
+
+            <h5>Exemple : Attraper une Erreur</h5>
+            <pre><code>
+try {
+  let result = 10 / 0; // Erreur : division par zéro
+} catch (err) {
+  console.log('Erreur attrapée 🚨 :', err.message);
+} finally {
+  console.log('Fini ✔️');
+}
+            </code></pre>
+            <p><strong>try :</strong> On essaie d’exécuter un code.</p>
+            <p><strong>catch :</strong> On attrape l’erreur si elle survient.</p>
+            <p><strong>finally :</strong> Ce code s’exécute quoi qu'il arrive.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 4: Concepts Supplémentaires -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingExtra">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseExtra" aria-expanded="false" aria-controls="collapseExtra">
+            4. Explorer Plus Loin : Concepts Utiles
+          </button>
+        </h2>
+        <div id="collapseExtra" class="accordion-collapse collapse" aria-labelledby="headingExtra"
+          data-bs-parent="#courseAccordion">
+          <div class="accordion-body">
+            <h5>HTTPS : Sécuriser les Routes 🛡️</h5>
+            <p><strong>HTTPS</strong> est une version sécurisée d'HTTP. Les messages sont cryptés, personne ne peut les
+              lire pendant le trajet.</p>
+
+            <h5>Cookies 🍪 : Souvenirs de ton Exploration</h5>
+            <p>Les <strong>cookies</strong> sont des morceaux d'informations stockés pour que les sites se souviennent
+              de toi (comme des identifiants de connexion).</p>
+
+            <h5>Les En-têtes (Headers) 📄</h5>
+            <p>Les <strong>en-têtes HTTP</strong> ajoutent des détails à chaque requête ou réponse (exemple : le type de
+              contenu envoyé).</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="container my-5">
+    <h2>Concepts Simples en Accordion</h2>
+    <div class="accordion" id="accordionExample">
+
+      <!-- Accordion for DOM Concept -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingDOM">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDOM"
+            aria-expanded="true" aria-controls="collapseDOM">
+            Nouveau Concept : Le DOM (Document Object Model) 🏠
+          </button>
+        </h2>
+        <div id="collapseDOM" class="accordion-collapse collapse show" aria-labelledby="headingDOM"
+          data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <p><strong>Explication :</strong> Le <strong>DOM</strong> est comme la <em>maison</em> de ta page web.
+              Chaque
+              élément (texte, images, boutons) est un <em>meuble</em> dans cette maison. Quand tu veux modifier quelque
+              chose, tu parles au DOM pour lui dire de changer cet objet.</p>
+            <pre><code>
+    let message = document.createElement('p');  // Créer un nouveau paragraphe
+    message.textContent = "C'est un message dans le DOM !";  // Définir le texte
+    document.body.appendChild(message);  // Ajouter le message à la page
+                </code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Accordion for Form Data Retrieval -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingForm">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseForm" aria-expanded="false" aria-controls="collapseForm">
+            Nouvelle Méthode : Récupérer les Données du Formulaire 📝
+          </button>
+        </h2>
+        <div id="collapseForm" class="accordion-collapse collapse" aria-labelledby="headingForm"
+          data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <p><strong>Étape 1 :</strong> Utilise <code>document.getElementById()</code> ou
+              <code>document.querySelector()</code> pour récupérer les informations.
+            </p>
+            <pre><code>
+    <form id="myForm">
+      <input type="text" id="username" name="username" placeholder="Nom d'utilisateur">
+      <button type="submit">Envoyer</button>
+    </form>
+    
+    let username = document.getElementById('username').value;
+    console.log(username);  // Affiche ce que l'utilisateur a tapé
+                </code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Accordion for JSON Transformation -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingJSON">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseJSON" aria-expanded="false" aria-controls="collapseJSON">
+            Étape 2 : Transformer les Données en JSON 📦
+          </button>
+        </h2>
+        <div id="collapseJSON" class="accordion-collapse collapse" aria-labelledby="headingJSON"
+          data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <p>Utilise <code>JSON.stringify()</code> pour transformer un objet en chaîne JSON.</p>
+            <pre><code>
+    let formData = { username: username };
+    let jsonString = JSON.stringify(formData);  // On transforme l'objet en JSON
+    console.log(jsonString);  // Affiche le JSON : {"username": "TonNom"}
+                </code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Accordion for DOM Update with JSON -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingDOMUpdate">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseDOMUpdate" aria-expanded="false" aria-controls="collapseDOMUpdate">
+            Étape 3 : Ajouter les Données JSON au DOM 🚀
+          </button>
+        </h2>
+        <div id="collapseDOMUpdate" class="accordion-collapse collapse" aria-labelledby="headingDOMUpdate"
+          data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <p>Utilise <code>appendChild()</code> pour ajouter des éléments dans le DOM.</p>
+            <pre><code>
+    let jsonElement = document.createElement('p');  // Créer un nouvel élément <p>
+    jsonElement.textContent = jsonString;  // On ajoute le texte JSON à cet élément
+    document.body.appendChild(jsonElement);  // Ajouter cet élément à la page
+                </code></pre>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="container my-5">
+    <h2>Explication des Erreurs avec Try-Catch</h2>
+
+    <div class="accordion" id="accordionExample">
+      <!-- Section 1 : Pourquoi parle-t-on d'erreur en programmation ? -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+            aria-expanded="true" aria-controls="collapseOne">
+            Pourquoi parle-t-on d'erreur en programmation ?
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+          data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            Quand on programme, il est fréquent qu'une action échoue pour différentes raisons :
+            <ul>
+              <li>Variables manquantes : utiliser une variable qui n'a pas été définie.</li>
+              <li>Division par zéro : certaines opérations mathématiques ne sont pas possibles.</li>
+              <li>Problèmes de connexion : accéder à une ressource indisponible.</li>
+            </ul>
+            Les erreurs peuvent arrêter complètement ton programme si elles ne sont pas gérées correctement.
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 2 : Pourquoi utiliser try-catch ? -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            Pourquoi utiliser try-catch ?
+          </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+          data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <strong>Avec try-catch</strong>, tu prévois les erreurs possibles et les gères pour éviter que ton programme
+            ne s'arrête brutalement. Le bloc <code>catch</code> permet de capturer et réagir à ces erreurs sans arrêter
+            l'exécution.
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 3 : Comment fonctionne try-catch ? -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            Comment fonctionne try-catch ?
+          </button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+          data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <ul>
+              <li><strong>try</strong> : Tester du code qui pourrait échouer.</li>
+              <li><strong>catch</strong> : Capturer l'erreur si elle survient et réagir.</li>
+              <li><strong>finally</strong> (optionnel) : Exécuter ce bloc quoi qu'il arrive.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 4 : Exemple concret -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingFour">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+            Exemple de code avec try-catch
+          </button>
+        </h2>
+        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+          data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <pre><code>try {
+  let result = 10 / 0;  // Erreur potentielle : division par zéro
+  console.log(result);
+} catch (error) {
+  console.log("Une erreur s'est produite :", error.message);
+} finally {
+  console.log("Opération terminée.");
+}</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 5 : Conclusion -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingFive">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+            Conclusion
+          </button>
+        </h2>
+        <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
+          data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            Le <code>try-catch</code> te permet de gérer les erreurs de manière propre et continue, sans arrêter ton
+            programme. Cela t'offre plus de flexibilité pour réagir et prendre en compte les erreurs.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
