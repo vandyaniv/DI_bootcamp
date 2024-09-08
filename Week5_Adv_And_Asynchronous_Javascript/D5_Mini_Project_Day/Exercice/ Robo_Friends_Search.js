@@ -146,7 +146,6 @@ myObject.display_item();
 
 
 
-
 // console.log(robots[2].name)
 
 // // let texte = robots[2].name; 
