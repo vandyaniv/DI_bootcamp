@@ -1,5 +1,5 @@
 body {
-  background: url(/Week5_Adv_And_Asynchronous_Javascript/robot_friend.png);
+  background: url(/Week5_Adv_And_Asynchronous_Javascript/D5_Mini_Project_Day/Exercice/image/robot_friend.png);
 
   background-color: #4b0082;
 }
@@ -9,7 +9,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url(/Week5_Adv_And_Asynchronous_Javascript/jason-quote-bg-pattern.png);
+  background-image: url(/Week5_Adv_And_Asynchronous_Javascript/D5_Mini_Project_Day/Exercice/image/jason-quote-bg-pattern.png);
 }
 
 .search_container {
@@ -54,7 +54,7 @@ form {
   height: 300;
   width: 400px;
   border: 3px solid black;
-  background: url(/Week5_Adv_And_Asynchronous_Javascript/background_card.png);
+  background: url(/Week5_Adv_And_Asynchronous_Javascript/D5_Mini_Project_Day/Exercice/image/robot_friend_png.png);
   border-radius: 1em;
   background-color: #1e90ff;
 }
@@ -69,7 +69,7 @@ form {
   display: flex;
   justify-content: center;
   border: 2px solid #4b0082;
-    background: url(/Week5_Adv_And_Asynchronous_Javascript/2023-dark-mode-mastodon-pattern.png);
+  background: url(/Week5_Adv_And_Asynchronous_Javascript/D5_Mini_Project_Day/Exercice/image/2023-dark-mode-mastodon-pattern.png);
   align-items: center;
 }
 

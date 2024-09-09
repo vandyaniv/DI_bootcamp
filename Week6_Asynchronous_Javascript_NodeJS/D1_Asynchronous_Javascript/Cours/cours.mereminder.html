@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cours : Promesses et async/await en JavaScript</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="container my-5">
+    <h1 class="text-center mb-4">Comprendre les promesses et async/await en JavaScript</h1>
+    <h3 class="text-center mb-5">Un guide détaillé et stimulant pour les esprits vifs 🚀</h3>
+
+    <div class="accordion" id="courseAccordion">
+
+      <!-- Introduction Section -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingIntro">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseIntro"
+            aria-expanded="true" aria-controls="collapseIntro">
+            Introduction
+          </button>
+        </h2>
+        <div id="collapseIntro" class="accordion-collapse collapse show" aria-labelledby="headingIntro"
+          data-bs-parent="#courseAccordion">
+          <div class="accordion-body">
+            <p>Bienvenue dans cette version approfondie de notre cours sur les promesses et async/await en JavaScript,
+              spécialement conçue pour les personnes ayant un TDAH. Nous allons décortiquer ces concepts essentiels pour
+              gérer les opérations asynchrones, en utilisant des exemples concrets, des analogies simples et une
+              structure claire pour faciliter la compréhension et la mémorisation.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Objectifs Section -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingObjectives">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseObjectives" aria-expanded="false" aria-controls="collapseObjectives">
+            Objectifs du cours
+          </button>
+        </h2>
+        <div id="collapseObjectives" class="accordion-collapse collapse" aria-labelledby="headingObjectives"
+          data-bs-parent="#courseAccordion">
+          <div class="accordion-body">
+            <ul>
+              <li>Comprendre en profondeur le fonctionnement des promesses et leur rôle dans la gestion de
+                l'asynchronicité.</li>
+              <li>Utiliser avec aisance les méthodes <code>.then()</code>, <code>.catch()</code>, et
+                <code>.finally()</code> pour manipuler les promesses.
+              </li>
+              <li>Écrire du code asynchrone clair et structuré grâce à <code>async/await</code>.</li>
+              <li>Gérer efficacement les erreurs dans vos opérations asynchrones.</li>
+              <li>Appliquer ces concepts à des situations réelles et des projets concrets.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Conseils pour TDAH Section -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTips">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseTips" aria-expanded="false" aria-controls="collapseTips">
+            Conseils pour le TDAH
+          </button>
+        </h2>
+        <div id="collapseTips" class="accordion-collapse collapse" aria-labelledby="headingTips"
+          data-bs-parent="#courseAccordion">
+          <div class="accordion-body">
+            <ul>
+              <li><strong>Fractionnez votre apprentissage</strong> : Prenez des pauses régulières, alternez entre la
+                lecture et la pratique.</li>
+              <li><strong>Utilisez des couleurs et des images</strong> : Créez des associations visuelles pour mieux
+                ancrer les concepts.</li>
+              <li><strong>Faites des fiches de révision</strong> : Résumez les points clés avec vos propres mots et des
+                exemples.</li>
+              <li><strong>Pratiquez, pratiquez, pratiquez</strong> : Écrivez du code, expérimentez, et n'ayez pas peur
+                de faire des erreurs !</li>
+              <li><strong>Expliquez les concepts à quelqu'un d'autre</strong> : Enseigner est un excellent moyen de
+                renforcer votre propre compréhension.</li>
+              <li><strong>Utilisez des outils en ligne</strong> : Explorez des tutoriels interactifs, des quiz et des
+                visualisations pour rendre l'apprentissage plus ludique.</li>
+              <li><strong>N'hésitez pas à poser des questions</strong> : Si quelque chose n'est pas clair, demandez de
+                l'aide !</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 1: Rappels essentiels Section -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingBasics">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseBasics" aria-expanded="false" aria-controls="collapseBasics">
+            Section 1: Rappels essentiels sur JavaScript
+          </button>
+        </h2>
+        <div id="collapseBasics" class="accordion-collapse collapse" aria-labelledby="headingBasics"
+          data-bs-parent="#courseAccordion">
+          <div class="accordion-body">
+            <p>Avant de plonger dans les promesses et <code>async/await</code>, assurons-nous d'avoir une base solide en
+              JavaScript.</p>
+            <h4>Variables</h4>
+            <p>Les variables sont comme des boîtes dans lesquelles vous pouvez stocker des informations...</p>
+            <h4>Fonctions</h4>
+            <p>Les fonctions sont comme des mini-programmes à l'intérieur de votre programme principal...</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 2: Le problème de l'asynchronicité Section -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingAsyncProblem">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseAsyncProblem" aria-expanded="false" aria-controls="collapseAsyncProblem">
+            Section 2: Le problème de l'asynchronicité
+          </button>
+        </h2>
+        <div id="collapseAsyncProblem" class="accordion-collapse collapse" aria-labelledby="headingAsyncProblem"
+          data-bs-parent="#courseAccordion">
+          <div class="accordion-body">
+            <p>Maintenant que vous avez les bases, parlons de l'asynchronicité...</p>
+            <h4>Code synchrone</h4>
+            <p>C'est comme une recette de cuisine que vous suivez étape par étape...</p>
+            <h4>Code asynchrone</h4>
+            <p>C'est comme jongler avec plusieurs balles en même temps...</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 3: Promesses Section -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingPromises">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapsePromises" aria-expanded="false" aria-controls="collapsePromises">
+            Section 3: Les promesses : le contrat pour le futur 🤝
+          </button>
+        </h2>
+        <div id="collapsePromises" class="accordion-collapse collapse" aria-labelledby="headingPromises"
+          data-bs-parent="#courseAccordion">
+          <div class="accordion-body">
+            <h4>Qu'est-ce qu'une promesse ?</h4>
+            <p>Imagine que tu commandes un livre en ligne. Tu reçois une confirmation de commande...</p>
+            <h4>Créer une promesse</h4>
+            <pre><code>function commanderLivre(titre) {
+  return new Promise((resolve, reject) => { 
+    setTimeout(() => {
+      if (titre === "JavaScript pour les Nuls") {
+        reject("Rupture de stock");
+      } else {
+        resolve("Votre livre est arrivé !");
+      }
+    }, 3000);
+  });
+}</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 4: Async/Await Section -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingAsyncAwait">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseAsyncAwait" aria-expanded="false" aria-controls="collapseAsyncAwait">
+            Section 4: async/await : la magie de la simplification ✨
+          </button>
+        </h2>
+        <div id="collapseAsyncAwait" class="accordion-collapse collapse" aria-labelledby="headingAsyncAwait"
+          data-bs-parent="#courseAccordion">
+          <div class="accordion-body">
+            <h4>async/await : le traducteur de promesses</h4>
+            <p>Imagine que tu voyages dans un pays étranger...</p>
+            <pre><<code>async function commanderEtLireLivre(titre) {
+  try {
+    const message = await commanderLivre(titre); // On attend que la promesse soit tenue
+    console.log(message);
+    console.log("📖 Je commence à lire mon livre avec enthousiasme !");
+  } catch (erreur) {
+    console.error(erreur); // Gérer l'erreur si la promesse est rejetée
+    console.log("😔 Je vais devoir choisir un autre livre...");
+  } finally {
+    console.log("📚 Fin de la commande de livre.");
+  }
+}
+
+commanderEtLireLivre("Le Seigneur des Anneaux");
+</code></pre>
+
+            <h4>Exemple : préparer un repas (version async/await)</h4>
+            <pre><code>async function preparerRepas() {
+  try {
+    const pates = await cuirePates(); // On attend la cuisson des pâtes
+    console.log(pates);
+
+    const sauce = await preparerSauce(); // Ensuite on prépare la sauce
+    console.log(sauce);
+
+    const plat = await melanger("pâtes", sauce); // Enfin on mélange le tout
+    console.log(plat);
+  } catch (erreur) {
+    console.error("Oups, une erreur s'est produite :", erreur); // Gérer une erreur potentielle
+  }
+}
+
+preparerRepas();</code></pre>
+            <h4>Avantages de async/await</h4>
+            <ul>
+              <li><strong>Code plus lisible</strong> : Le code ressemble à du code synchrone, ce qui le rend plus facile
+                à suivre, surtout pour les personnes ayant un TDAH.</li>
+              <li><strong>Gestion des erreurs simplifiée</strong> : Le bloc <code>try...catch</code> permet de gérer les
+                erreurs de manière centralisée, au lieu d'avoir des <code>.catch()</code> partout dans votre code.</li>
+              <li><strong>Meilleure organisation</strong> : <code>async/await</code> permet de structurer votre code de
+                manière plus logique, en évitant l'imbrication excessive de callbacks.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 5: Exemples pratiques -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingExamples">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseExamples" aria-expanded="false" aria-controls="collapseExamples">
+            Section 5: Exemples pratiques pour consolider vos connaissances
+          </button>
+        </h2>
+        <div id="collapseExamples" class="accordion-collapse collapse" aria-labelledby="headingExamples"
+          data-bs-parent="#courseAccordion">
+          <div class="accordion-body">
+            <h4>Exercice 1 : Charger une image et l'afficher</h4>
+            <p>Objectif : Écrivez une fonction <code>async</code> qui prend l'URL d'une image en paramètre, la
+              télécharge depuis internet, puis l'affiche dans un élément <code>&lt;img&gt;</code> sur votre page web.
+            </p>
+
+            <h4>Exercice 2 : Simuler un délai avant une action</h4>
+            <p>Objectif : Écrivez une fonction <code>async</code> appelée <code>attendre</code> qui prend un nombre de
+              secondes en paramètre et simule un délai de cette durée avant d'afficher un message dans la console.</p>
+
+            <h4>Exercice 3 : Récupérer des données d'une API</h4>
+            <p>Objectif : Écrivez une fonction <code>async</code> qui récupère des données depuis une API (par exemple,
+              l'API de la météo) et affiche les résultats dans la console ou sur votre page web.</p>
+
+            <h4>Exercice 4 : Enchaîner des promesses pour une recette de cuisine</h4>
+            <p>Objectif : Écrivez une série de fonctions <code>async</code> qui simulent différentes étapes d'une
+              recette de cuisine. Chaque étape doit retourner une promesse, et vous devez utiliser <code>await</code>
+              pour enchaîner les étapes dans le bon ordre.</p>
+
+            <h4>Exercice 5 : Gérer les erreurs</h4>
+            <p>Objectif : Modifiez les exercices précédents pour inclure une gestion des erreurs robuste. Simulez des
+              erreurs potentielles dans vos fonctions asynchrones et utilisez <code>try...catch</code> pour les gérer de
+              manière appropriée.</p>
+
+            <h4>Conseils pour réussir les exercices</h4>
+            <ul>
+              <li>Commencez par les exercices faciles et progressez graduellement vers les plus difficiles.</li>
+              <li>Décomposez les problèmes en étapes plus petites pour éviter la surcharge cognitive.</li>
+              <li>Utilisez des noms de variables clairs et descriptifs pour faciliter la compréhension de votre code.
+              </li>
+              <li>Ajoutez des commentaires pour expliquer ce que fait chaque partie de votre code.</li>
+              <li>N'hésitez pas à chercher de l'aide en ligne ou auprès de vos camarades si vous êtes bloqué.</li>
+              <li>Célébrez vos réussites ! Chaque exercice résolu est une victoire ! 🎉</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Conclusion Section -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingConclusion">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseConclusion" aria-expanded="false" aria-controls="collapseConclusion">
+            Conclusion et Ressources utiles
+          </button>
+        </h2>
+        <div id="collapseConclusion" class="accordion-collapse collapse" aria-labelledby="headingConclusion"
+          data-bs-parent="#courseAccordion">
+          <div class="accordion-body">
+            <p>Bravo ! Vous avez maintenant une solide compréhension des promesses et de <code>async/await</code> en
+              JavaScript. Ces outils puissants vous permettront d'écrire du code asynchrone plus clair, plus structuré
+              et plus facile à maintenir. N'oubliez pas de pratiquer régulièrement pour renforcer vos compétences et
+              n'hésitez pas à explorer d'autres ressources pour approfondir vos connaissances.</p>
+
+            <h4>Ressources utiles</h4>
+            <ul>
+              <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Statements/async_function"
+                  target="_blank">MDN web docs: async function</a></li>
+              <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Promise"
+                  target="_blank">MDN web docs: Promises</a></li>
+              <li><a href="https://javascript.info/async-await" target="_blank">JavaScript.info: Async/await</a></li>
+            </ul>
+
+            <p><strong>Vous avez des questions ?</strong> Je suis là pour vous aider ! N'hésitez pas à me contacter si
+              vous avez besoin de clarifications ou d'un soutien supplémentaire. 😊</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
