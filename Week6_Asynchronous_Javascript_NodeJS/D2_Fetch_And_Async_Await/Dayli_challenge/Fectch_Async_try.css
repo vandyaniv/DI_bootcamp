@@ -1,0 +1,92 @@
+body {
+  margin: 0;
+  background: url(./ki-generated-7705179_960_720.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+nav {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  align-items: center;
+  background: url(./css-lattice-pattern.png);
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 20px;
+  z-index: 1000;
+  flex-direction: row;
+  border: 6px solid black;
+}
+
+nav a {
+  text-decoration: none;
+  margin-left: 15px;
+  font-size: medium;
+  color: grey;
+  font-size: larger;
+}
+
+nav ul {
+  list-style-type: none;
+  display: flex;
+}
+
+nav h1 {
+  font-size: 30px;
+  color: grey;
+}
+
+.logo-img {
+  width: 50px;
+  height: auto;
+  margin-left: 10px;
+}
+
+#Gify_form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+#button_form {
+  padding: 10px 20px;
+  font-size: 20px;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#button_form:hover {
+  background-color: blueviolet;
+  transform: scale(1);
+}
+
+#Category_input {
+  padding: 10px 20px;
+  font-size: 20px;
+  margin-right: 3px;
+  color: black;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+#delete_all {
+  padding: 6px 10px;
+  margin-top: 10px;
+  font-size: 20px;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: midnightblue;
+}
+
+#delete_all:hover{
+  background-color: blueviolet;
+  transform:scale(1);
+}

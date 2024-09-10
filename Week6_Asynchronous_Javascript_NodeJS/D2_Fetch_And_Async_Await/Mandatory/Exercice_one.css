@@ -1,0 +1,100 @@
+body {
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+}
+nav {
+  background: url(./background-1637197_640.webp);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+}
+
+.center_element {
+  display: flex;
+  flex-direction: column;
+}
+
+#logo {
+  margin-left: 10px;
+}
+
+.module {
+  background: url(./rocket-7774875_960_720.webp);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+.container-fetch {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+  border: 3px solid black;
+  height: 200px;
+  width: 400px;
+  background-color: white;
+  border-radius: 1em;
+  background: url(./cactus-8251095_960_720.webp);
+}
+
+#button-suprise {
+  height: 40px;
+  border-radius: 1em;
+  background: url(./background-1637197_640.webp);
+}
+
+#gif_zone {
+  margin: 20px;
+  height: 300px;
+}
+
+/*  part 2  */
+
+.summer_content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bckground_container {
+  background: url(./beach-4398269_960_720.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  height: 200px;
+  width: 350px;
+  background-color: aqua;
+  border: 2px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 2em;
+}
+
+#Summer_btn {
+  width: 120px;
+  height: 40px;
+  background-color: white;
+  border-radius: 10px;
+}
