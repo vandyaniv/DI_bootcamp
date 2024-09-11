@@ -1,0 +1,57 @@
+body {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  height: auto;
+  width: 500px;
+}
+
+#Title_top {
+  color: yellow;
+  font-size: 80px;
+  font-family: 'Star Wars', sans-serif;
+}
+
+#Button_generate {
+  position: relative;
+  top: 0;
+  margin-top: 20px;
+  font-size: large;
+}
+
+.element_container {
+  border: 1px solid white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  max-width: 500px;
+  width: 100%;
+  height: 300px;
+}
+
+.element_container p {
+  color: white;
+  margin-bottom: 10px;
+  font-size: 2em;
+}
+
+h1 {
+  text-align: center;
+}
+
+#icone {
+  color: aliceblue;
+ 
+}
