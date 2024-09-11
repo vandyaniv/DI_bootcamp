@@ -1,4 +1,4 @@
-const importObject = require ('../introduction_exercieXP_NodeJS/product.js');
+const importObject = require ('./product.js');
 
 
 function f_of(name){
