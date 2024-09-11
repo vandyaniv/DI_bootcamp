@@ -1,0 +1,14 @@
+{
+  "name": "npm-begginer",
+  "version": "1.0.0",
+  "description": "exercice on npm",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo test"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "readdir": "^1.0.2"
+  }
+}
