@@ -1,0 +1,23 @@
+{
+  "name": "exercice_xp_all-here",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "express": "^4.21.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  },
+  "keywords": [],
+  "author": "Yaniv",
+  "license": "ISC",
+  "description": "Week 6 Exercises for Node.js",
+  "type": "module",
+  "bin": {
+    "ent": "node ent.js"
+  }
+}
