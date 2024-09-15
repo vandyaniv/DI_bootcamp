@@ -1,0 +1,21 @@
+{
+  "name": "dailychallenge",
+  "version": "1.0.0",
+  "main": "Dailychallenge/app.js",
+  "type": "module",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  },
+  "dependencies": {
+    "express": "^4.21.0"
+  }
+}
