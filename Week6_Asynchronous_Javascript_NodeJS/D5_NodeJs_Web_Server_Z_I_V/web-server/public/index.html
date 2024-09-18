@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <h1>Welcome to NodeJS + ExpressJs</h1>
+  <h2>A very coll server</h2>
+
+  <!--  -->
+
+  <div>
+    <h1>Shop</h1>
+
+    <!-- Search a product -->
+    <h2>Search one product with id</h2>
+    <form onSubmit="searchProductId(event)">
+      <input name="id" placeholder="Product ID">
+      <input type="submit" value="Submit">
+    </form>
+
+    <!-- Add new product -->
+    <h2>Add Product</h2>
+    <form>
+      <input placeholder="name">
+      <input placeholder="price">
+      <input type="submit" value="Submit">
+    </form>
+
+    <div id="root"></div>
+  </div>
+</body>
+<script src="./script.js"></script>
+
+
+</html>
