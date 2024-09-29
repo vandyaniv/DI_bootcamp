@@ -1,0 +1,22 @@
+.App {
+  text-align: center;
+  transition:
+    background-color 0.5s,
+    color 0.5s;
+}
+
+body.light .App {
+  background-color: white;
+  color: black;
+}
+
+body.dark .App {
+  background-color: black;
+  color: white;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
