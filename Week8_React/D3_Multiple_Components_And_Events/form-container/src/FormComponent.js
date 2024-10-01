@@ -1,4 +1,3 @@
-// src/FormComponent.js
 import React from 'react';
 
 function FormComponent({ formData, handleChange, handleSubmit }) {
