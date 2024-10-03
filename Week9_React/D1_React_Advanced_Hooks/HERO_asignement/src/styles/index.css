@@ -1,0 +1,40 @@
+.weather-page {
+  margin: 20px auto;
+  width: 300px;
+  text-align: center;
+}
+
+input {
+  padding: 10px;
+  margin-right: 10px;
+}
+
+button {
+  padding: 10px;
+}
+
+body {
+  background-color: red;
+}
+
+.weather-page {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.city-card {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin: 10px;
+  width: 200px;
+  text-align: center;
+}
+
+.city-card h3 {
+  font-size: 1.5em;
+}
+
+.city-card p {
+  margin: 5px 0;
+}
