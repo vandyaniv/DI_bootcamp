@@ -1,0 +1,18 @@
+# Ignore node_modules and other unnecessary files
+/node_modules
+
+
+/coverage/
+
+# Ignore build directory (for React or similar)
+build/
+
+
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Ignore npm and yarn logs
+npm-debug.log*
